@@ -1,0 +1,72 @@
+<ecopedia chapter="Reference" priority="-1" icon="Ecopedia_Professions">
+  <summary loc="254">Professions grant citizens special abilities and allow them to craft advanced items.</summary>
+  <section loc="253">Professions are groups of similar [Specialties] that unlock new crafting recipes and provide abilities like reduced calorie usage when crafting or using a tool. Within each profession is a group of similar specialties.
+  
+Below is a list of all professions and the corresponding specialties. Citizens can choose to focus on one profession or learn specialties from a variety of professions.
+  </section>
+  <section type="header" loc="326">Carpenter</section>
+  <section loc="327">
+[Carpenters|Carpenter] specialize in harvesting trees and processing the wood into furniture and building material for homes.
+  - [LoggingSkill] allows citizens to harvest trees more efficiently. In addition, Logging is used to produce [Hewn Logs|HewnLogItem] which are the primary building material for the carpentry profession.
+  - [CarpentrySkill] allows citizens to produce wooden furniture and [Boards|Board Item]. By using a [SawmillItem], citizens with this specialty can produce [LumberItem].
+  - [CompositesSkill] allows citizens to use advanced technology to produce the finest quality [CompositeLumberItem] building material.
+  - [PaperMillingSkill] allows citizens to refine wood pulp into [PaperItem]. Paper is used for some specialty furniture.
+</section>
+  <section type="header" loc="328">Chef</section>
+  <section loc="329">
+[Chefs|Chef] specialize in cooking more nutritious food to boost the rate citizens gain experience.
+  - [CampfireCookingSkill] is the entry level Chef specialty that uses a [CampfireItem] to prepare basic meals.
+  - [CookingSkill] is the second step in the Chef profession that uses a [CastIronStoveItem] to produce higher quality meals.
+  - [BakingSkill] is an alternative to Cooking that uses [FlourItem] to produce baked goods.
+  - [AdvancedCookingSkill] is a high-level Chef profession that produces the most nutritious food.
+  - [AdvancedBakingSkill] is an alternative to Advanced Cooking that uses [LeavenedDoughItem] to make high quality baked goods. 
+ </section>
+  <section type="header" loc="330">Engineer</section>
+  <section loc="331">
+[Engineers|Engineer] specialize in producing vehicles and advanced crafting materials for use by other professions.
+  - [BasicEngineeringSkill] allows citizens to produce roads and carts to help with transportation. In addition, basic engineering creates the crafting tables necessary to process and smelt ore.
+  - [MechanicsSkill] allows to citizens to create early motorized vehicles, like a [SteamTruckItem]. Mechanics provides the first source of electric power to help enable tecnological progression.
+  - [IndustrySkill] allows citizens to create advanced vehicles, like an [ExcavatorItem] that can quickly collect large amounts of natural resources.
+  - [OilDrillingSkill] allows citizens to use a [PumpJackItem] to collect [PetroleumItem] for use in fuel and a variety of industrial projects.
+  - [ElectronicsSkill] uses expensive ingredients to produce the most advanced materials needed for modern crafting projects. In addition to providing a source of green electricity, electronics is used to craft the [LaserItem] needed to save the world from the meteor.
+</section>
+  <section type="header" loc="332">Farmer</section>
+  <section loc="333">
+[Farmers|Farmer] are specialists in agriculture. The crops they produce are a primary source of the calories needed for citizens to perform work.
+  - [GatheringSkill] allows citizens to harvest more produce from both wild plants and human-created farms.
+  - [FarmingSkill] allows citizens to create seeds out of produce to help create large farms.
+  - [FertilizersSkill] allows citizens to craft fertilizer and test soil conditions with a [SoilSamplerItem].
+  - [MillingSkill] allows citizens to process products in a [MillItem] for use by chefs in more advanced recipes.
+</section>
+  <section type="header" loc="334">Hunter</section>
+  <section loc="335">
+[Hunters|Hunter] are specialists at efficiently hunting animals and preparing meat for use by chefs. The two hunter specialties are closely linked as the animals hunted must be processed before the meat can be used by a chef. 
+  - [HuntingSkill] grants citizens bonus damage when hunting animals and allows them to approach animals at a closer distance without causing them to run.
+  - [ButcherySkill] allows citizens to process animal carcasses into prepared meat for chefs. The pelts and hides they create can be used for clothing and other crafting projects.
+</section>
+  <section type="header" loc="336">Mason</section>
+  <section loc="337">
+[Masons|Mason] are specialists at mining and working with stone. They provide a valuable source of building material and furniture for homes. The ore they collect is used by Smiths to smelt metal bars.
+  -[MiningSkill] allows citizens to expend less calories while mining stone and ore. Miners also process collected ore to be used for smelting.
+  -[MasonrySkill] allows citizens to produce [MortarItem], a primary ingredient for most mason building materials. The [MortaredStoneItem] they produce is a great source of early housing material.
+  -[PotterySkill] allows citizens to craft [BrickItem] building material and furniture out of [ClayItem].
+  -[GlassworkingSkill] allows citizens to create [GlassItem] and later [FramedGlassItem]. Glass is a nice supplemental building material and is used in a variety of industrial projects.
+  -[AdvancedMasonrySkill] is a high-level mason skill that produces the finest quality Ashlar Stone building material and furniture.
+</section>
+  <section type="header" loc="338">Smith</section>
+  <section loc="339">
+[Smiths|Smith] specialize in smelting ore and making tools for other citizens using the metal bars they create.
+  - [SmeltingSkill] allows citizens to smelt the metal bars that make up the foundation of technological advancement. The iron tools they create provide significant benefit over the early stone tools.
+  - [AdvancedSmeltingSkill] allows citizens to further refine iron bars into [Steel|SteelBarItem] for use in industry and high-tier building materials. Citizens with this specialty can use the steel they create to make more advanced tools.
+</section>
+  <section type="header" loc="340">Tailor</section>
+  <section loc="341">
+The [Tailor] specializes in making high end furniture and specialized clothing that provide bonuses when worn. Unlike most professions, there is only one Tailor specialty.
+  - [TailoringSkill] allows citizens to create [ClothItem] to create high quality furniture and for use in crafting projects by a variety of professions. The clothing tailors create provides citizens with special bonuses. For example, a [BigBackpackItem] has a higher maximum weight limit than the starter [BasicBackpackItem].
+</section>
+  <section type="header" loc="342">Survivalist</section>
+  <section loc="343">
+[Survivalists|Survivalist] specialize in carrying extra weight and reducing the calories expended when using basic tools. All citizens are survivalists in the world of Eco. 
+   - Experience in [SelfImprovementSkill] is gained anytime a citizen levels up another specialty. Self-improvement has two main benefits. As citizens progress, they will have increased carry weight capacity and a larger stomach capacity for extra calories. In addition, less calories are consumed when using hammers and shovels.
+</section>
+</ecopedia>

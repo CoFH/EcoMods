@@ -1,0 +1,11 @@
+<ecopedia chapter="Reference">
+  <summary loc="248">Farmers are specialists in agriculture.</summary>
+  <section loc="247">
+    Farmers are specialists in agriculture. The crops they produce are a primary source of the calories needed for citizens to perform work.
+ 
+  - [FarmingSkill] allows citizens to create seeds out of produce to help create large farms.
+  - [FertilizersSkill] allows citizens add nutrients to soil and test soil conditions with a [SoilSamplerItem].
+  - [GatheringSkill] allows citizens to harvest more produce from both wild plants and human-created farms.
+  - [MillingSkill] allows citizens to process produce in a [MillItem] for use by chefs in more advanced recipes.
+  </section>
+</ecopedia>
