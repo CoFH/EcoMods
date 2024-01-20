@@ -11,7 +11,7 @@ Flaxseed Oil:
 - 12 Flax Seeds -> Flaxseed Oil (-4 Flax Seeds Required)
 
 Wind Turbine:
-- 8 Steel Bars + 4 Gearboxes + 4 Advanced Circuits + 4 Servos -> Wind Turbine (-4 Servos Required)
+- 6 Steel Bars + 4 Fiberglass + 4 Gearboxes + 4 Advanced Circuits + 4 Servos -> Wind Turbine (-2 Steel Bars, -4 Servos, and +4 Fiberglass Required)
 
 Wooden Molds:
 - Now have a Fuel Value of 500
@@ -30,11 +30,16 @@ Fish Oil:
 Mix Soil:
 - 3 Sand + 1 Clay + 4 Compost -> 4 Dirt (Farming 4; Farmer's Table, 50 Calories, 0.5 XP, 3 Minutes)
 
+Wet Tailings Stabilization:
+- 4 Wet Tailings + 2 Quicklime -> 4 Tailings (Scales with Efficiency) (Advanced Masonry 3; Cement Kiln, 180 Calories, 1 XP, 4.8 Minutes)
+
 ### Rationale:
 
 Fishing falls off really early and there is a lot of pressure on Millers to produce Oils (especially with Flaxseeds). This eases a bit of that pressure and boosts Hunting (Fishing) as a profession.
 
 Compost sucks. Soil (Dirt) is made from a combination of silt, clay, sand, and organic material. This is just providing a recipe that is grounded in reality. Sand is pulling double duty as both Silt and Sand in this recipe, but it is a decent approximation.
+
+Wet Tailings can be processed/stabilized. Using Quicklime is actually how it is done. It doesn't magically make them non-polluting but it DOES reduce their volume and their propensity for seepage. It basically dries them out. So that's what this does.
 
 ## Advanced Smelting (in `/AutoGen`):
 
@@ -66,9 +71,11 @@ Paper Milling needs the help. And...they're literally called Papers.
 
 ## Uninstallation Instructions:
 
+In `/Mods/UserCode/AutoGen/Block`, remove the following files:
+- `SteelPipe.override.cs`
+
 In `/Mods/UserCode/AutoGen/Item`, remove the following files:
 - `Rebar.override.cs`
 - `Rivet.override.cs`
-- `SteelPipe.override.cs`
 
 - Remove the `CoFHRecipeTweaks` folder from `/Mods/UserCode`

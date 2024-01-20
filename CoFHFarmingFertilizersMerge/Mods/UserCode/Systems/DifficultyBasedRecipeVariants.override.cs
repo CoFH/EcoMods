@@ -30,6 +30,7 @@ namespace Eco.Mods.TechTree
             RecipeVariant.RegisterDefault<CuttingEdgeCookingSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<ElectronicsSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<FarmingSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
+            // RecipeVariant.RegisterDefault<FertilizersSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<GlassworkingSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<IndustrySkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<MasonrySkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
@@ -55,7 +56,7 @@ namespace Eco.Mods.TechTree
                 new IngredientElement(typeof(AdvancedCircuitItem), 100, true),
                 new IngredientElement(typeof(PlasticItem), 100, true),
                 new IngredientElement(typeof(ReinforcedConcreteItem), 200, true),
-                 new IngredientElement("CompositeLumber", 200, true)
+                new IngredientElement("CompositeLumber", 200, true)
 
             });
             RecipeVariant.Register<LaserRecipe>(DifficultyConfig.EndgameRecipesExpensive, new[]
@@ -176,7 +177,7 @@ namespace Eco.Mods.TechTree
             });
 			RecipeVariant.Register<MasonrySkillBookRecipe>(DifficultyConfig.SkillbookRecipesExpensive, new[]
             {
-                    new IngredientElement(typeof(GeologyResearchPaperBasicItem), 6, true),
+                new IngredientElement(typeof(GeologyResearchPaperBasicItem), 6, true),
             });
 			RecipeVariant.Register<MechanicsSkillBookRecipe>(DifficultyConfig.SkillbookRecipesExpensive, new[]
             {

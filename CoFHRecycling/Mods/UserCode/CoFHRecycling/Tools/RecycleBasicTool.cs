@@ -16,21 +16,20 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Settlements.ClaimStakes;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(SmeltingSkill), 3)]
-    public partial class RecycleIronToolRecipe : RecipeFamily
+    public partial class RecycleBasicToolRecipe : RecipeFamily
     {
-        public RecycleIronToolRecipe()
+        public RecycleBasicToolRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "RecycleIronAxe",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Axe"),
+                name: "RecycleStoneAxe",  //noloc
+                displayName: Localizer.DoStr("Recycle Stone Axe"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronAxeItem), 1, true)
+                    new IngredientElement(typeof(StoneAxeItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -38,21 +37,20 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
                     new CraftingElement<WoodPulpItem>(4)
                 });
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 0; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(100, typeof(SmeltingSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(10);
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(RecycleIronToolRecipe), start: 0.25f, skillType: typeof(SmeltingSkill), typeof(SmeltingFocusedSpeedTalent), typeof(SmeltingParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(0.25f);
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Recycle Iron Tool"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Recycle Stone Tool"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Recycle Iron Tool"), recipeType: typeof(RecycleIronToolRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Recycle Basic Tool"), recipeType: typeof(RecycleBasicToolRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
@@ -66,19 +64,19 @@ namespace Eco.Mods.TechTree
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleIronHammerRecipe : Recipe
+    public partial class RecycleStoneHammerRecipe : Recipe
     {
-        public RecycleIronHammerRecipe()
+        public RecycleStoneHammerRecipe()
         {
             this.Init(
-                name: "RecycleIronHammer",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Hammer"),
+                name: "RecycleStoneHammer",  //noloc
+                displayName: Localizer.DoStr("Recycle Stone Hammer"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronHammerItem), 1, true)
+                    new IngredientElement(typeof(StoneHammerItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -86,31 +84,30 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
                     new CraftingElement<WoodPulpItem>(4)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleIronHoeRecipe : Recipe
+    public partial class RecycleStoneMacheteRecipe : Recipe
     {
-        public RecycleIronHoeRecipe()
+        public RecycleStoneMacheteRecipe()
         {
             this.Init(
-                name: "RecycleIronHoe",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Hoe"),
+                name: "RecycleStoneMachete",  //noloc
+                displayName: Localizer.DoStr("Recycle Stone Machete"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronHoeItem), 1, true)
+                    new IngredientElement(typeof(StoneMacheteItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -118,31 +115,30 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
                     new CraftingElement<WoodPulpItem>(4)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleIronMacheteRecipe : Recipe
+    public partial class RecycleStonePickaxeRecipe : Recipe
     {
-        public RecycleIronMacheteRecipe()
+        public RecycleStonePickaxeRecipe()
         {
             this.Init(
-                name: "RecycleIronMachete",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Machete"),
+                name: "RecycleStonePickaxe",  //noloc
+                displayName: Localizer.DoStr("Recycle Stone Pickaxe"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronMacheteItem), 1, true)
+                    new IngredientElement(typeof(StonePickaxeItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -150,31 +146,30 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
                     new CraftingElement<WoodPulpItem>(4)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleIronPickaxeRecipe : Recipe
+    public partial class RecycleStoneSickleRecipe : Recipe
     {
-        public RecycleIronPickaxeRecipe()
+        public RecycleStoneSickleRecipe()
         {
             this.Init(
-                name: "RecycleIronPickaxe",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Pickaxe"),
+                name: "RecycleStoneSickle",  //noloc
+                displayName: Localizer.DoStr("Recycle Stone Sickle"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronPickaxeItem), 1, true)
+                    new IngredientElement(typeof(StoneSickleItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -182,31 +177,30 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
                     new CraftingElement<WoodPulpItem>(4)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleIronRockDrillRecipe : Recipe
+    public partial class RecycleWoodenHoeRecipe : Recipe
     {
-        public RecycleIronRockDrillRecipe()
+        public RecycleWoodenHoeRecipe()
         {
             this.Init(
-                name: "RecycleIronRockDrill",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Rock Drill"),
+                name: "RecycleWoodenHoe",  //noloc
+                displayName: Localizer.DoStr("Recycle Wooden Hoe"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronRockDrillItem), 1, true)
+                    new IngredientElement(typeof(WoodenHoeItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -214,31 +208,30 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
                     new CraftingElement<WoodPulpItem>(4)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleIronShovelRecipe : Recipe
+    public partial class RecycleWoodenShovelRecipe : Recipe
     {
-        public RecycleIronShovelRecipe()
+        public RecycleWoodenShovelRecipe()
         {
             this.Init(
-                name: "RecycleIronShovel",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Shovel"),
+                name: "RecycleWoodenShovel",  //noloc
+                displayName: Localizer.DoStr("Recycle Wooden Shovel"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronShovelItem), 1, true)
+                    new IngredientElement(typeof(WoodenShovelItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -246,31 +239,30 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
                     new CraftingElement<WoodPulpItem>(4)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleIronSickleRecipe : Recipe
+    public partial class RecycleWoodenBowRecipe : Recipe
     {
-        public RecycleIronSickleRecipe()
+        public RecycleWoodenBowRecipe()
         {
             this.Init(
-                name: "RecycleIronSickle",  //noloc
-                displayName: Localizer.DoStr("Recycle Iron Sickle"),
+                name: "RecycleWoodenBow",  //noloc
+                displayName: Localizer.DoStr("Recycle Wooden Bow"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronSickleItem), 1, true)
+                    new IngredientElement(typeof(WoodenBowItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -278,31 +270,31 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(1),
-                    new CraftingElement<WoodPulpItem>(4)
+                    new CraftingElement<WoodPulpItem>(6),
+                    new CraftingElement<PlantFibersItem>(8)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
 
-    public partial class RecycleRecurveBowRecipe : Recipe
+    public partial class RecycleFishingPoleRecipe : Recipe
     {
-        public RecycleRecurveBowRecipe()
+        public RecycleFishingPoleRecipe()
         {
             this.Init(
-                name: "RecycleRecurveBow",  //noloc
-                displayName: Localizer.DoStr("Recycle Recurve Bow"),
+                name: "RecycleFishingPole",  //noloc
+                displayName: Localizer.DoStr("Recycle Fishing Pole"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(RecurveBowItem), 1, true)
+                    new IngredientElement(typeof(FishingPoleItem), 1, true)
                 },
 
                 // Define our recipe output items.
@@ -310,13 +302,12 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<IronBarItem>(2),
-                    new CraftingElement<CelluloseFiberItem>(2),
-                    new CraftingElement<WoodPulpItem>(5)
+                    new CraftingElement<WoodPulpItem>(4),
+                    new CraftingElement<PlantFibersItem>(2)
                 });
             // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
             this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleIronToolRecipe), this);
+            CraftingComponent.AddTagProduct(typeof(ToolBenchObject), typeof(RecycleBasicToolRecipe), this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
