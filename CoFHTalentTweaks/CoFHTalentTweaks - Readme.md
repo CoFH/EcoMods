@@ -30,11 +30,13 @@ In `/Mods/UserCode/AutoGen/Benefit`, remove the following files:
 - `PowerShot.override.cs`
 - `ToolStrength.override.cs`
 
+In `/Mods/UserCode/AutoGen/Tool`, remove the following files:
+- `CompositeBow.override.cs`
+- `RecurveBow.override.cs`
+- `WoodenBow.override.cs`
+
 In `/Mods/UserCode/Objects`, remove the following file:
 - `TreeObject.override.cs`
 
 In `/Mods/UserCode/Tools`, remove the following file:
 - `AxeItem.override.cs`
-- `CompositeBow.override.cs`
-- `RecurveBow.override.cs`
-- `WoodenBow.override.cs`
