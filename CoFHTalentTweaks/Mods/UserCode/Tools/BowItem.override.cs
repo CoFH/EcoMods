@@ -136,11 +136,11 @@ namespace Eco.Mods.TechTree
                     if (hitHead)
                     {
                         experienceMultiplier *= 0.5f;
-                        locationMultiplier *= 0.5f;
+                        locationMultiplier *= 1.5f;
                         if (player.User.Talentset.HasTalent(typeof(HuntingDeadeyeTalent)))  // This makes it a multiplicative 50% and not additive
                         {
                             experienceMultiplier *= 0.5f;
-                            locationMultiplier *= 0.5f;
+                            locationMultiplier *= 1.5f;
                         }
                     }
                     // player experience is now based on damage and get x0,5 of it
