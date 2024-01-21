@@ -135,11 +135,11 @@ namespace Eco.Mods.TechTree
                     // player will do x1.5 damage when hit head and x2.25 if they have HuntingDeadeyeTalent; experience scales with damage
                     if (hitHead)
                     {
-                        experienceMultiplier *= 0.5f;
+                        experienceMultiplier *= 1.5f;
                         locationMultiplier *= 1.5f;
                         if (player.User.Talentset.HasTalent(typeof(HuntingDeadeyeTalent)))  // This makes it a multiplicative 50% and not additive
                         {
-                            experienceMultiplier *= 0.5f;
+                            experienceMultiplier *= 1.5f;
                             locationMultiplier *= 1.5f;
                         }
                     }
