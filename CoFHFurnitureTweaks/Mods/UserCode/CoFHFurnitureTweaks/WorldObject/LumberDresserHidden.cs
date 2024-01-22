@@ -49,7 +49,7 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [RequireComponent(typeof(PropertyAuthComponent))]
-    // [RequireComponent(typeof(LinkComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(HousingComponent))]
     [RequireComponent(typeof(PublicStorageComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
@@ -59,23 +59,26 @@ namespace Eco.Mods.TechTree
     [RequireRoomContainment]
     [RequireRoomVolume(12)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Hardwood Lumber Dresser Item")]
-    public partial class HardwoodLumberDresserUnlinkedObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Lumber Dresser Item")]
+    public partial class LumberDresserHiddenObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(HardwoodLumberDresserUnlinkedItem);
-        public override LocString DisplayName => Localizer.DoStr("Hardwood Lumber Dresser (Unlinked)");
+        public virtual Type RepresentedItemType => typeof(LumberDresserHiddenItem);
+        public override LocString DisplayName => Localizer.DoStr("Lumber Dresser (Hidden)");
         public override TableTextureMode TableTexture => TableTextureMode.Wood;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<HousingComponent>().HomeValue = HardwoodLumberDresserUnlinkedItem.homeValue;
+            this.GetComponent<HousingComponent>().HomeValue = LumberDresserHiddenItem.homeValue;
             var storage = this.GetComponent<PublicStorageComponent>();
             storage.Initialize(16);
             storage.Storage.AddInvRestriction(new ClothItemRestriction());
             storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
             var wardrobe = this.GetComponent<WardrobeComponent>();
             wardrobe.Initialize();
+            
+            this.GetComponent<LinkComponent>().Hidden = true;
+
             this.ModsPostInitialize();
         }
 
@@ -86,18 +89,18 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Hardwood Lumber Dresser (Unlinked)")]
+    [LocDisplayName("Lumber Dresser (Hidden)")]
     [LocDescription("A lumber dresser that lets you store your clothing and quickly switch between a designated outfit and whatever you are currently wearing.")]
     [Ecopedia("Housing Objects", "Bedroom", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(2000)] // Defines how heavy HardwoodLumberDresser is.
-    public partial class HardwoodLumberDresserUnlinkedItem : WorldObjectItem<HardwoodLumberDresserUnlinkedObject>
+    [Weight(2000)] // Defines how heavy LumberDresser is.
+    public partial class LumberDresserHiddenItem : WorldObjectItem<LumberDresserHiddenObject>
     {
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(HardwoodLumberDresserUnlinkedObject).UILink(),
+            ObjectName                              = typeof(LumberDresserHiddenObject).UILink(),
             Category                                = HousingConfig.GetRoomCategory("Bedroom"),
             BaseValue                               = 3,
             TypeForRoomLimit                        = Localizer.DoStr("Dresser"),
@@ -105,9 +108,9 @@ namespace Eco.Mods.TechTree
             
         };
 
-        static HardwoodLumberDresserUnlinkedItem()
+        static LumberDresserHiddenItem()
         {
-            WorldObject.AddOccupancy<HardwoodLumberDresserUnlinkedObject>(new List<BlockOccupancy>(){
+            WorldObject.AddOccupancy<LumberDresserHiddenObject>(new List<BlockOccupancy>(){
                 new BlockOccupancy(new Vector3i(-1, 0, 0)),
                 new BlockOccupancy(new Vector3i(-1, 1, 0)),
                 new BlockOccupancy(new Vector3i(0, 0, 0)),

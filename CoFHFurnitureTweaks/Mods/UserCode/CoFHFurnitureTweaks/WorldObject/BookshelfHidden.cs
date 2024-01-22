@@ -49,7 +49,7 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [RequireComponent(typeof(PropertyAuthComponent))]
-    // [RequireComponent(typeof(LinkComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(HousingComponent))]
     [RequireComponent(typeof(PublicStorageComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
@@ -58,20 +58,23 @@ namespace Eco.Mods.TechTree
     [RequireRoomContainment]
     [RequireRoomVolume(4)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Living Room", subPageName: "Shelf Cabinet Item")]
-    public partial class ShelfCabinetUnlinkedObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Living Room", subPageName: "Bookshelf Item")]
+    public partial class BookshelfHiddenObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(ShelfCabinetUnlinkedItem);
-        public override LocString DisplayName => Localizer.DoStr("Shelf Cabinet (Unlinked)");
+        public virtual Type RepresentedItemType => typeof(BookshelfHiddenItem);
+        public override LocString DisplayName => Localizer.DoStr("Bookshelf (Hidden)");
         public override TableTextureMode TableTexture => TableTextureMode.Wood;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<HousingComponent>().HomeValue = ShelfCabinetUnlinkedItem.homeValue;
+            this.GetComponent<HousingComponent>().HomeValue = BookshelfHiddenItem.homeValue;
             var storage = this.GetComponent<PublicStorageComponent>();
             storage.Initialize(8);
             storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
+
+            this.GetComponent<LinkComponent>().Hidden = true;
+
             this.ModsPostInitialize();
         }
 
@@ -82,18 +85,18 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Shelf Cabinet (Unlinked)")]
-    [LocDescription("When a shelf and a cabinet aren't enough individually.")]
+    [LocDisplayName("Bookshelf (Hidden)")]
+    [LocDescription("A place to store knowledge and information; leads to the town hall.")]
     [Ecopedia("Housing Objects", "Living Room", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(2000)] // Defines how heavy ShelfCabinet is.
-    public partial class ShelfCabinetUnlinkedItem : WorldObjectItem<ShelfCabinetUnlinkedObject>
+    [Weight(2000)] // Defines how heavy Bookshelf is.
+    public partial class BookshelfHiddenItem : WorldObjectItem<BookshelfHiddenObject>
     {
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(ShelfCabinetUnlinkedObject).UILink(),
+            ObjectName                              = typeof(BookshelfHiddenObject).UILink(),
             Category                                = HousingConfig.GetRoomCategory("Living Room"),
             BaseValue                               = 2,
             TypeForRoomLimit                        = Localizer.DoStr("Shelves"),
@@ -101,13 +104,12 @@ namespace Eco.Mods.TechTree
             
         };
 
-        static ShelfCabinetUnlinkedItem()
+        static BookshelfHiddenItem()
         {
-            WorldObject.AddOccupancy<ShelfCabinetUnlinkedObject>(new List<BlockOccupancy>(){
+            WorldObject.AddOccupancy<BookshelfHiddenObject>(new List<BlockOccupancy>(){
                 new BlockOccupancy(new Vector3i(0, 0, 0)),
                 new BlockOccupancy(new Vector3i(0, 1, 0)),
             });
         }
-
     }
 }

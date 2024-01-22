@@ -49,7 +49,7 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [RequireComponent(typeof(PropertyAuthComponent))]
-    // [RequireComponent(typeof(LinkComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(HousingComponent))]
     [RequireComponent(typeof(PublicStorageComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
@@ -59,23 +59,26 @@ namespace Eco.Mods.TechTree
     [RequireRoomContainment]
     [RequireRoomVolume(12)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Hewn Dresser Item")]
-    public partial class HewnDresserUnlinkedObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Softwood Lumber Dresser Item")]
+    public partial class SoftwoodLumberDresserHiddenObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(HewnDresserUnlinkedItem);
-        public override LocString DisplayName => Localizer.DoStr("Hewn Dresser (Unlinked)");
+        public virtual Type RepresentedItemType => typeof(SoftwoodLumberDresserHiddenItem);
+        public override LocString DisplayName => Localizer.DoStr("Softwood Lumber Dresser (Hidden)");
         public override TableTextureMode TableTexture => TableTextureMode.Wood;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<HousingComponent>().HomeValue = HewnDresserUnlinkedItem.homeValue;
+            this.GetComponent<HousingComponent>().HomeValue = SoftwoodLumberDresserHiddenItem.homeValue;
             var storage = this.GetComponent<PublicStorageComponent>();
             storage.Initialize(16);
             storage.Storage.AddInvRestriction(new ClothItemRestriction());
             storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
             var wardrobe = this.GetComponent<WardrobeComponent>();
             wardrobe.Initialize();
+            
+            this.GetComponent<LinkComponent>().Hidden = true;
+
             this.ModsPostInitialize();
         }
 
@@ -86,32 +89,32 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Hewn Dresser (Unlinked)")]
-    [LocDescription("A rough hewn wooden dresser that lets you store your clothing and quickly switch between a designated outfit and whatever you are currently wearing.")]
+    [LocDisplayName("Softwood Lumber Dresser (Hidden)")]
+    [LocDescription("A lumber dresser that lets you store your clothing and quickly switch between a designated outfit and whatever you are currently wearing.")]
     [Ecopedia("Housing Objects", "Bedroom", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(2000)] // Defines how heavy HewnDresser is.
-    public partial class HewnDresserUnlinkedItem : WorldObjectItem<HewnDresserUnlinkedObject>
+    [Weight(2000)] // Defines how heavy SoftwoodLumberDresser is.
+    public partial class SoftwoodLumberDresserHiddenItem : WorldObjectItem<SoftwoodLumberDresserHiddenObject>
     {
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(HewnDresserUnlinkedObject).UILink(),
+            ObjectName                              = typeof(SoftwoodLumberDresserHiddenObject).UILink(),
             Category                                = HousingConfig.GetRoomCategory("Bedroom"),
-            BaseValue                               = 1,
+            BaseValue                               = 3,
             TypeForRoomLimit                        = Localizer.DoStr("Dresser"),
             DiminishingReturnMultiplier                = 0.5f
             
         };
 
-        static HewnDresserUnlinkedItem()
+        static SoftwoodLumberDresserHiddenItem()
         {
-            WorldObject.AddOccupancy<HewnDresserUnlinkedObject>(new List<BlockOccupancy>(){
+            WorldObject.AddOccupancy<SoftwoodLumberDresserHiddenObject>(new List<BlockOccupancy>(){
+                new BlockOccupancy(new Vector3i(-1, 0, 0)),
+                new BlockOccupancy(new Vector3i(-1, 1, 0)),
                 new BlockOccupancy(new Vector3i(0, 0, 0)),
-                new BlockOccupancy(new Vector3i(0, 0, 1)),
-                new BlockOccupancy(new Vector3i(1, 0, 0)),
-                new BlockOccupancy(new Vector3i(1, 0, 1)),
+                new BlockOccupancy(new Vector3i(0, 1, 0)),
             });
         }
 

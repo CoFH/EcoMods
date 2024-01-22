@@ -24,51 +24,51 @@ namespace Eco.Gameplay.Systems.NewTooltip.TooltipLibraryFiles
     public static class CoFHFurnitureTweaksTooltipLibrary
     {
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this BookshelfItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this BookshelfItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this BookshelfUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this BookshelfHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
     
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this HardwoodLumberDresserItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this HardwoodLumberDresserItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this HardwoodLumberDresserUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this HardwoodLumberDresserHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this HewnDresserItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this HewnDresserItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this HewnDresserUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this HewnDresserHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this IceboxItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this IceboxItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this IceboxUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this IceboxHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this LumberDresserItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this LumberDresserItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this LumberDresserUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this LumberDresserHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this RefrigeratorItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this RefrigeratorItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this RefrigeratorUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this RefrigeratorHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this ShelfCabinetItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this ShelfCabinetItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this ShelfCabinetUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this ShelfCabinetHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this SoftwoodLumberDresserItem item) => TextLoc.ControlsLoc($"Right-click to disable inventory linking.");
+        public static LocString ControlsTooltip(this SoftwoodLumberDresserItem item) => TextLoc.ControlsLoc($"Right-click to prevent linking to this inventory.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
-        public static LocString ControlsTooltip(this SoftwoodLumberDresserUnlinkedItem item) => TextLoc.ControlsLoc($"Right-click to enable inventory linking.\n\n[Select on toolbar and right-click to place]");
+        public static LocString ControlsTooltip(this SoftwoodLumberDresserHiddenItem item) => TextLoc.ControlsLoc($"Right-click to allow linking to this inventory.\n\n[Select on toolbar and right-click to place]");
     }
 }

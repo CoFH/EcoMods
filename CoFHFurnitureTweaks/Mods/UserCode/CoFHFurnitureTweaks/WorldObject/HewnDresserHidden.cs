@@ -49,31 +49,36 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [RequireComponent(typeof(PropertyAuthComponent))]
-    // [RequireComponent(typeof(LinkComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(HousingComponent))]
     [RequireComponent(typeof(PublicStorageComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
+    [RequireComponent(typeof(WardrobeComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
     [RequireComponent(typeof(RoomRequirementsComponent))]
     [RequireRoomContainment]
-    [RequireRoomVolume(8)]
+    [RequireRoomVolume(12)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Kitchen", subPageName: "Icebox Item")]
-    public partial class IceboxUnlinkedObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Hewn Dresser Item")]
+    public partial class HewnDresserHiddenObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(IceboxUnlinkedItem);
-        public override LocString DisplayName => Localizer.DoStr("Icebox (Unlinked)");
+        public virtual Type RepresentedItemType => typeof(HewnDresserHiddenItem);
+        public override LocString DisplayName => Localizer.DoStr("Hewn Dresser (Hidden)");
         public override TableTextureMode TableTexture => TableTextureMode.Wood;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<HousingComponent>().HomeValue = IceboxUnlinkedItem.homeValue;
+            this.GetComponent<HousingComponent>().HomeValue = HewnDresserHiddenItem.homeValue;
             var storage = this.GetComponent<PublicStorageComponent>();
             storage.Initialize(16);
-            storage.Storage.AddInvRestriction(new StackLimitRestriction(200));
+            storage.Storage.AddInvRestriction(new ClothItemRestriction());
             storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
-            storage.ShelfLifeMultiplier = 1.6f;
+            var wardrobe = this.GetComponent<WardrobeComponent>();
+            wardrobe.Initialize();
+
+            this.GetComponent<LinkComponent>().Hidden = true;
+
             this.ModsPostInitialize();
         }
 
@@ -84,33 +89,32 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Icebox (Unlinked)")]
-    [LocDescription("A box of ice. It's in the name!")]
-    [Ecopedia("Housing Objects", "Kitchen", createAsSubPage: true)]
+    [LocDisplayName("Hewn Dresser (Hidden)")]
+    [LocDescription("A rough hewn wooden dresser that lets you store your clothing and quickly switch between a designated outfit and whatever you are currently wearing.")]
+    [Ecopedia("Housing Objects", "Bedroom", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(1000)] // Defines how heavy Icebox is.
-    public partial class IceboxUnlinkedItem : WorldObjectItem<IceboxUnlinkedObject>
+    [Weight(2000)] // Defines how heavy HewnDresser is.
+    public partial class HewnDresserHiddenItem : WorldObjectItem<HewnDresserHiddenObject>
     {
-        [NewTooltip(CacheAs.SubType, 50)] public static LocString UpdateTooltip() => Localizer.Do($"{Localizer.DoStr("Increases")} total shelf life by: {Text.InfoLight(Text.Percent(0.6f))}").Dash();
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(IceboxUnlinkedObject).UILink(),
-            Category                                = HousingConfig.GetRoomCategory("Kitchen"),
-            BaseValue                               = 1.5f,
-            TypeForRoomLimit                        = Localizer.DoStr("Food Storage"),
-            DiminishingReturnMultiplier                = 0.3f
+            ObjectName                              = typeof(HewnDresserHiddenObject).UILink(),
+            Category                                = HousingConfig.GetRoomCategory("Bedroom"),
+            BaseValue                               = 1,
+            TypeForRoomLimit                        = Localizer.DoStr("Dresser"),
+            DiminishingReturnMultiplier                = 0.5f
             
         };
 
-        static IceboxUnlinkedItem()
+        static HewnDresserHiddenItem()
         {
-            WorldObject.AddOccupancy<IceboxUnlinkedObject>(new List<BlockOccupancy>(){
-                new BlockOccupancy(new Vector3i(-1, 0, 0)),
-                new BlockOccupancy(new Vector3i(-1, 1, 0)),
+            WorldObject.AddOccupancy<HewnDresserHiddenObject>(new List<BlockOccupancy>(){
                 new BlockOccupancy(new Vector3i(0, 0, 0)),
-                new BlockOccupancy(new Vector3i(0, 1, 0)),
+                new BlockOccupancy(new Vector3i(0, 0, 1)),
+                new BlockOccupancy(new Vector3i(1, 0, 0)),
+                new BlockOccupancy(new Vector3i(1, 0, 1)),
             });
         }
 
