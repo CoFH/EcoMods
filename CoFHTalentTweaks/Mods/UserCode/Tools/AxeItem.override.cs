@@ -60,11 +60,14 @@ namespace Eco.Mods.TechTree
                     {
                         if (target.IsBlock && target.Block().Get<TreeDebris>() is TreeDebris treeDebris)
                         {
+                            #region CHANGED BY CoFHTalentTweaks
                             if (player.User.Talentset.HasTalent(typeof(LoggingCleanupCrewTalent)))
                             {
                                 multiblockContext.CaloriesPerAction = 0;
                                 multiblockContext.RepairableItem = null;
                             }
+                            #endregion
+
                             //Add debris items to inventory
                             foreach (var x in ((TreeSpecies)EcoSim.GetSpecies(treeDebris.Species)).DebrisResources)
                                 pack.AddToInventory(player.User.Inventory, Item.Get(x.Key), x.Value.RandInt, player.User);

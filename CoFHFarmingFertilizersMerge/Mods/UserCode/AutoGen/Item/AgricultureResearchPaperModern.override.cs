@@ -36,6 +36,7 @@ namespace Eco.Mods.TechTree
     /// This is an auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization. 
     /// If you wish to modify this class, please create a new partial class or follow the instructions in the "UserCode" folder to override the entire file.
     /// </remarks>
+    // CHANGED BY CoFHFarmingFertilizersMerge: [RequiresSkill(typeof(FertilizersSkill), 1)]
     [RequiresSkill(typeof(FarmingSkill), 1)]
     [Ecopedia("Items", "Research Papers", subPageName: "Agriculture Research Paper Modern Item")]
     public partial class AgricultureResearchPaperModernRecipe : RecipeFamily
@@ -51,6 +52,13 @@ namespace Eco.Mods.TechTree
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
+                    // CHANGED BY COFHFarmingFertilizersMerge
+                    // new IngredientElement(typeof(BerryExtractFertilizerItem), 5, typeof(FertilizersSkill), typeof(FertilizersLavishResourcesTalent)),
+                    // new IngredientElement(typeof(BloodMealFertilizerItem), 5, typeof(FertilizersSkill), typeof(FertilizersLavishResourcesTalent)),
+                    // new IngredientElement(typeof(HideAshFertilizerItem), 5, typeof(FertilizersSkill), typeof(FertilizersLavishResourcesTalent)),
+                    // new IngredientElement(typeof(PeltFertilizerItem), 5, typeof(FertilizersSkill), typeof(FertilizersLavishResourcesTalent)),
+                    // new IngredientElement("Raw Food", 200, typeof(FertilizersSkill), typeof(FertilizersLavishResourcesTalent)), //noloc
+
                     new IngredientElement(typeof(BerryExtractFertilizerItem), 5, typeof(FarmingSkill), typeof(FarmingLavishResourcesTalent)),
                     new IngredientElement(typeof(BloodMealFertilizerItem), 5, typeof(FarmingSkill), typeof(FarmingLavishResourcesTalent)),
                     new IngredientElement(typeof(HideAshFertilizerItem), 5, typeof(FarmingSkill), typeof(FarmingLavishResourcesTalent)),
@@ -69,6 +77,7 @@ namespace Eco.Mods.TechTree
             this.ExperienceOnCraft = 6; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
+            // CHANGED BY CoFHFarmingFertilizersMerge: this.LaborInCalories = CreateLaborInCaloriesValue(600, typeof(FertilizersSkill));
             this.LaborInCalories = CreateLaborInCaloriesValue(600, typeof(FarmingSkill));
 
             // Defines our crafting time for the recipe

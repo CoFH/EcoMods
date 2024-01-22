@@ -1,6 +1,9 @@
 # CoFH Recipe Tweaks
 
-This is a simple recipe adjustment mod - folders serve as categories for the recipes, with the exception of `/AutoGen`.
+This is a simple recipe adjustment mod - folders serve as categories for the recipes, with the exception of `/AutoGen`. Changes to files in `/AutoGen` have been marked with `CHANGED BY CoFHRecipeTweaks` as comments.
+
+If you like what you see here, you should check out Team CoFH's Minecraft mods.
+![Team CoFH Discord](https://discord.gg/uRKrnbH)
 
 ## Adjusted Recipes:
 

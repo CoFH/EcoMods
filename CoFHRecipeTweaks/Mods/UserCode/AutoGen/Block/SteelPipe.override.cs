@@ -79,6 +79,7 @@ namespace Eco.Mods.TechTree
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
+            // CHANGED BY CoFHRecipeTweaks: CraftingComponent.AddRecipe(tableType: typeof(BlastFurnaceObject), recipe: this);
             CraftingComponent.AddRecipe(tableType: typeof(AnvilObject), recipe: this);
         }
 

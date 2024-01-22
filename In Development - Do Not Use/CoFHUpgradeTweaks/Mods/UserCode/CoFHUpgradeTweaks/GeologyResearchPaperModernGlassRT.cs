@@ -13,7 +13,6 @@
     using Gameplay.Systems.TextLinks;
     using Eco.Shared.Localization;
     using Eco.Core.Controller;
-    using Eco.Gameplay.Settlements.ClaimStakes;
     using Eco.Gameplay.Items.Recipes;
 
     [RequiresSkill(typeof(GlassworkingSkill), 1)]

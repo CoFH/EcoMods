@@ -103,6 +103,7 @@ namespace Eco.Mods.TechTree
     /// </summary>
     [Serialized]
     [LocDisplayName("Tool Strength: Gathering")]
+    // CHANGED BY CoFHTalentTweaks: [LocDescription("Increases the damage of related tools by 1.")]
     [LocDescription("Increases the yield of plants which require a tool to harvest by 10 percent.")]
     public partial class GatheringToolStrengthTalentGroup : TalentGroup
     {
@@ -124,9 +125,11 @@ namespace Eco.Mods.TechTree
         public override Type TalentGroupType { get { return typeof(GatheringToolStrengthTalentGroup); } }
         public GatheringToolStrengthTalent()
         {
+            // CHANGED BY CoFHTalentTweaks: this.Value = 1;
             this.Value = 1.1f;
         }
 
+        #region CHANGED BY CoFHTalentTweaks
         public override void RegisterTalent(User user)
         {
             user.Talentset.OnPlantHarvest += this.ApplyModifier;
@@ -143,5 +146,6 @@ namespace Eco.Mods.TechTree
             var newQuantity = item.Quantity * (valid ? this.Value : 1);
             return new ItemStack(item.Item, (int)newQuantity);
         }
+        #endregion
     }
 }

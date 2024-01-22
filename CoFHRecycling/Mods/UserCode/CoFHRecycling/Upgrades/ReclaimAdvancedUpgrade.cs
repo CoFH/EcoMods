@@ -13,7 +13,6 @@ namespace Eco.Mods.TechTree
     using Gameplay.Systems.TextLinks;
     using Eco.Shared.Localization;
     using Eco.Core.Controller;
-    using Eco.Gameplay.Settlements.ClaimStakes;
     using Eco.Gameplay.Items.Recipes;
 
     public partial class ReclaimAdvancedUpgradeRecipe : RecipeFamily

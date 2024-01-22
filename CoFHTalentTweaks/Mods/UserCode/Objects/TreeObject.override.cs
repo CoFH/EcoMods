@@ -35,7 +35,7 @@ namespace Eco.Mods.Organisms
     using System.ComponentModel;
     using Eco.Gameplay.Interactions.Interactors;
 
-    using Eco.Mods.TechTree;
+    using Eco.Mods.TechTree;    // CHANGED BY CoFHTalentTweaks
 
     [Serialized]
     [Tag(BlockTags.Choppable)]
@@ -553,6 +553,7 @@ namespace Eco.Mods.Organisms
                     this.ChopperUserID = damager is Player player ? player.User.Id : -1;
                     EcoSim.PlantSim.KillPlant(this, DeathType.Logging, true);
 
+                    #region CHANGED BY CoFHTalentTweaks
                     // Trunk Cleanup
                     if (user != null && user.Talentset.HasTalent(typeof(LoggingLoggersLuckTalent)))
                     {
@@ -571,6 +572,7 @@ namespace Eco.Mods.Organisms
                         // Let another plant grow here
                         EcoSim.PlantSim.UpRootPlant(this);
                     }
+                    #endregion
                 }
 
                 this.MarkDirty();

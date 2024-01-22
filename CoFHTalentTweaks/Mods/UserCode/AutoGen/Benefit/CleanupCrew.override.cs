@@ -39,7 +39,7 @@ namespace Eco.Mods.TechTree
     /// </summary>
     [Serialized]
     [LocDisplayName("Cleanup Crew: Logging")]
-    // [LocDescription("[WIP - No functionality yet] Allows to pick up debris by hand that costs no calories.")]
+    // CHANGED BY CoFHTalentTweaks: [LocDescription("[WIP - No functionality yet] Allows to pick up debris by hand that costs no calories.")]
     [LocDescription("Clearing tree debris no longer uses calories or tool durability.")]
     public partial class LoggingCleanupCrewTalentGroup : TalentGroup
     {

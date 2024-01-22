@@ -59,6 +59,7 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
+                    // CHANGED BY CoFHRecipeTweaks: new CraftingElement<RivetItem>(3)
                     new CraftingElement<RivetItem>(4)
                 });
             this.Recipes = new List<Recipe> { recipe };
@@ -76,6 +77,7 @@ namespace Eco.Mods.TechTree
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
+            // CHANGED BY CoFHRecipeTweaks: CraftingComponent.AddRecipe(tableType: typeof(BlastFurnaceObject), recipe: this);
             CraftingComponent.AddRecipe(tableType: typeof(AnvilObject), recipe: this);
         }
 

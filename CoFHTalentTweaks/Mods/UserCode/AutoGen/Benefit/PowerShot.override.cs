@@ -39,6 +39,7 @@ namespace Eco.Mods.TechTree
     /// </summary>
     [Serialized]
     [LocDisplayName("Power Shot: Hunting")]
+    // CHANGED BY CoFHTalentTweaks: [LocDescription("Increases the damage tier of Bows")]
     [LocDescription("Increases the damage of Bows by 20 percent.")]
     public partial class HuntingPowerShotTalentGroup : TalentGroup
     {
@@ -60,6 +61,7 @@ namespace Eco.Mods.TechTree
         public override Type TalentGroupType { get { return typeof(HuntingPowerShotTalentGroup); } }
         public HuntingPowerShotTalent()
         {
+            // CHANGED BY CoFHTalentTweaks: this.Value = 1;
             this.Value = 1.2f;
         }
     }

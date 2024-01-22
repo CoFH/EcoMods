@@ -36,6 +36,7 @@ namespace Eco.Mods.TechTree
     /// This is an auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization. 
     /// If you wish to modify this class, please create a new partial class or follow the instructions in the "UserCode" folder to override the entire file.
     /// </remarks>
+    // CHANGED BY CoFHFarmingFertilizersMerge: [RequiresSkill(typeof(FertilizersSkill), 0)]
     [RequiresSkill(typeof(FarmingSkill), 0)]
     [Ecopedia("Items", "Tools", subPageName: "Soil Sampler Item")]
     public partial class SoilSamplerRecipe : RecipeFamily
@@ -51,6 +52,8 @@ namespace Eco.Mods.TechTree
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
+                    // CHANGED BY CoFHFarmingFertilizersMerge: new IngredientElement("Wood", 2, typeof(FertilizersSkill), typeof(FertilizersLavishResourcesTalent)), //noloc
+                    // CHANGED BY CoFHFarmingFertilizersMerge: new IngredientElement("WoodBoard", 2, typeof(FertilizersSkill), typeof(FertilizersLavishResourcesTalent)), //noloc
                     new IngredientElement("Wood", 2, typeof(FarmingSkill), typeof(FarmingLavishResourcesTalent)), //noloc
                     new IngredientElement("WoodBoard", 2, typeof(FarmingSkill), typeof(FarmingLavishResourcesTalent)), //noloc
                 },
@@ -66,9 +69,11 @@ namespace Eco.Mods.TechTree
             this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
+            // CHANGED BY CoFHFarmingFertilizersMerge: this.LaborInCalories = CreateLaborInCaloriesValue(50, typeof(FertilizersSkill));
             this.LaborInCalories = CreateLaborInCaloriesValue(50, typeof(FarmingSkill));
 
             // Defines our crafting time for the recipe
+            // CHANGED BY CoFHFarmingFertilizersMerge: this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(SoilSamplerRecipe), start: 4, skillType: typeof(FertilizersSkill), typeof(FertilizersFocusedSpeedTalent), typeof(FertilizersParallelSpeedTalent));
             this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(SoilSamplerRecipe), start: 4, skillType: typeof(FarmingSkill), typeof(FarmingFocusedSpeedTalent), typeof(FarmingParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Soil Sampler"

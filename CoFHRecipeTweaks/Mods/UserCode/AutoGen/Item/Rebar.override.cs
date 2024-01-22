@@ -51,6 +51,7 @@ namespace Eco.Mods.TechTree
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
+                    // CHANGED BY CoFHRecipeTweaks: new IngredientElement(typeof(SteelBarItem), 2, typeof(AdvancedSmeltingSkill), typeof(AdvancedSmeltingLavishResourcesTalent)),
                     new IngredientElement(typeof(SteelBarItem), 1, typeof(AdvancedSmeltingSkill), typeof(AdvancedSmeltingLavishResourcesTalent)),
                 },
 
@@ -76,6 +77,7 @@ namespace Eco.Mods.TechTree
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
+            // CHANGED BY CoFHRecipeTweaks: CraftingComponent.AddRecipe(tableType: typeof(BlastFurnaceObject), recipe: this);
             CraftingComponent.AddRecipe(tableType: typeof(AnvilObject), recipe: this);
         }
 

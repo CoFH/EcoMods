@@ -30,7 +30,7 @@ namespace Eco.Mods.TechTree
             RecipeVariant.RegisterDefault<CuttingEdgeCookingSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<ElectronicsSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<FarmingSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
-            // RecipeVariant.RegisterDefault<FertilizersSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
+            // CHANGED BY CoFHFarmingFertilizersMerge: RecipeVariant.RegisterDefault<FertilizersSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<GlassworkingSkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<IndustrySkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
             RecipeVariant.RegisterDefault<MasonrySkillBookRecipe>(DifficultyConfig.SkillbookRecipesNormal);
@@ -159,6 +159,15 @@ namespace Eco.Mods.TechTree
                 new IngredientElement(typeof(GatheringResearchPaperBasicItem), 4, true),
                 new IngredientElement(typeof(GeologyResearchPaperBasicItem), 2, true),
             });
+
+            #region CHANGED BY CoFHFarmingFertiizersMerge
+            // RecipeVariant.Register<FertilizersSkillBookRecipe>(DifficultyConfig.SkillbookRecipesExpensive, new[]
+            // {
+            //     new IngredientElement(typeof(AgricultureResearchPaperAdvancedItem), 6, true),
+            //     new IngredientElement("Basic Research", 10, true),
+            // });
+            #endregion
+
 			RecipeVariant.Register<GlassworkingSkillBookRecipe>(DifficultyConfig.SkillbookRecipesExpensive, new[]
             {
                 new IngredientElement(typeof(GeologyResearchPaperBasicItem), 20, true),

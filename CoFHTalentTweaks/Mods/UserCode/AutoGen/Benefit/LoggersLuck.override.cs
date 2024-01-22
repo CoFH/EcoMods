@@ -39,7 +39,7 @@ namespace Eco.Mods.TechTree
     /// </summary>
     [Serialized]
     [LocDisplayName("Loggers Luck: Logging")]
-    // [LocDescription("[WIP - No functionality yet]Every hit has a chance of destroying tree stumps and splitting trunks immediately.")]
+    // CHANGED BY CoFHTalentTweaks: [LocDescription("[WIP - No functionality yet]Every hit has a chance of destroying tree stumps and splitting trunks immediately.")]
     [LocDescription("Tree stumps are automatically destroyed when a tree is felled.")]
     public partial class LoggingLoggersLuckTalentGroup : TalentGroup
     {

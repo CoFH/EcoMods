@@ -29,6 +29,7 @@ namespace Eco.Mods.TechTree
     /// This is an auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization. 
     /// If you wish to modify this class, please create a new partial class or follow the instructions in the "UserCode" folder to override the entire file.
     /// </remarks>
+    // CHANGED BY CoFHFarmingFertilizersMerge: [RequiresSkill(typeof(FertilizersSkill), 3)]
     [RequiresSkill(typeof(FarmingSkill), 4)]
     public partial class CompostSpoiledFoodRecipe : RecipeFamily
     {
@@ -58,9 +59,11 @@ namespace Eco.Mods.TechTree
             this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
+            // CHANGED BY CoFHFarmingFertilizersMerge: this.LaborInCalories = CreateLaborInCaloriesValue(20, typeof(FertilizersSkill));
             this.LaborInCalories = CreateLaborInCaloriesValue(20, typeof(FarmingSkill));
 
             // Defines our crafting time for the recipe
+            // CHANGED BY CoFHFarmingFertilizersMerge: this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(CompostSpoiledFoodRecipe), start: 1.2f, skillType: typeof(FertilizersSkill), typeof(FertilizersFocusedSpeedTalent), typeof(FertilizersParallelSpeedTalent));
             this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(CompostSpoiledFoodRecipe), start: 1.2f, skillType: typeof(FarmingSkill), typeof(FarmingFocusedSpeedTalent), typeof(FarmingParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Compost Spoiled Food"

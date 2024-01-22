@@ -104,7 +104,7 @@ namespace Eco.Mods.TechTree
         [SyncToView] public override string ArrowPrefab      => "ArrowModern";
                                                                                                                                                                                                                                            // Static values
         private static IDynamicValue caloriesBurn           = new MultiDynamicValue(MultiDynamicOps.Multiply, new TalentModifiedValue(typeof(CompositeBowItem), typeof(ToolEfficiencyTalent)), CreateCalorieValue(20, typeof(HuntingSkill), typeof(CompositeBowItem)));
-        // private static IDynamicValue damage                 = CreateDamageValue(1.5f, typeof(HuntingSkill), typeof(CompositeBowItem));
+        // CHANGED BY CoFHTalentTweaks: private static IDynamicValue damage                 = CreateDamageValue(1.5f, typeof(HuntingSkill), typeof(CompositeBowItem));
         private static IDynamicValue damage                 = new MultiDynamicValue(MultiDynamicOps.Multiply, new TalentModifiedValue(typeof(CompositeBowItem), typeof(HuntingPowerShotTalent)), CreateDamageValue(1.5f, typeof(HuntingSkill), typeof(CompositeBowItem)));
         private static IDynamicValue exp                    = new ConstantValue(1);
         private static IDynamicValue tier                   = new ConstantValue(4);

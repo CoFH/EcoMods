@@ -1,8 +1,13 @@
 # CoFH Farming/Fertilizers Merge
 
-This mod removes the Fertilizers skill and rolls all of the recipes and usages into Farming. That's it.
+This mod removes the Fertilizers skill and rolls all of the recipes and usages into Farming. It also bumps the required skill level of the formerly Fertilizers recipes by 1. That's it.
 
-However, to do this (and properly update the Ecopedia), it is a highly invasive mod, making use of numerous `.override` classes and even a couple of changes to files in the `__core__` folder. If you wish to uninstall this mod, *please read the uninstallation instructions carefully.* The instructions assume that you have file extensions as visible. If you do not, please enable that setting.
+However, to do this (and properly update the Ecopedia), it is a highly invasive mod, making use of numerous `.override` classes and even a couple of changes to .xml files in the `__core__` folder to update the Ecopedia (which is unfortunate). If you wish to uninstall this mod, *please read the uninstallation instructions carefully.* The instructions assume that you have file extensions as visible. If you do not, please enable that setting.
+
+Normally, I try and tag all of my changes in `.override` files with a comment or region which states "CHANGED BY {Mod Name}" but in this particular case I've had to overwrite so many files that I *highly* recommend just running the install/uninstall scripts and not trying to reproduce or modify the changes. Most of the files do have these tags, but the Fertilizers do not. Essentially, any reference to the Fertilizers skill or talents has been replaced with the Farming equivalents.
+
+If you like what you see here, you should check out Team CoFH's Minecraft mods.
+![Team CoFH Discord](https://discord.gg/uRKrnbH)
 
 ## Installation Instructions:
 

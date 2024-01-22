@@ -60,6 +60,7 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(RoomRequirementsComponent))]
     [RequireRoomContainment]
     [RequireRoomVolume(18)]
+    // CHANGED BY CoFHFarmingFertilizersMerge: [RequireRoomMaterialTier(0.2f, typeof(FertilizersLavishReqTalent), typeof(FertilizersFrugalReqTalent))]
     [RequireRoomMaterialTier(0.2f, typeof(FarmingLavishReqTalent), typeof(FarmingFrugalReqTalent))]
     [Tag("Usable")]
     [Ecopedia("Work Stations", "Craft Tables", subPageName: "Farmers Table Item")]
@@ -89,6 +90,7 @@ namespace Eco.Mods.TechTree
     [IconGroup("World Object Minimap")]
     [Ecopedia("Work Stations", "Craft Tables", createAsSubPage: true)]
     [Weight(2000)] // Defines how heavy FarmersTable is.
+    // CHANGED BY CoFHFarmingFertilizersMerge: [AllowPluginModules(Tags = new[] { "BasicUpgrade" }, ItemTypes = new[] { typeof(FarmingUpgradeItem), typeof(FertilizersUpgradeItem) })] //noloc
     [AllowPluginModules(Tags = new[] { "BasicUpgrade" }, ItemTypes = new[] { typeof(FarmingUpgradeItem) })] //noloc
     public partial class FarmersTableItem : WorldObjectItem<FarmersTableObject>, IPersistentData
     {

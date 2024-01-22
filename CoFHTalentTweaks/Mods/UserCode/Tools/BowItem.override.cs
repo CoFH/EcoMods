@@ -128,6 +128,7 @@ namespace Eco.Mods.TechTree
                 {
                     targetAnimal.AttachedEntities.Add(this);
 
+                    #region CHANGED BY CoFHTalentTweaks
                     var experienceMultiplier = 0.5f * this.Damage;
                     var locationMultiplier = 1f;
                     var hitHead = location.Contains("Head");
@@ -143,10 +144,15 @@ namespace Eco.Mods.TechTree
                             locationMultiplier *= 1.5f;
                         }
                     }
+                    #endregion
+
+                    #region CHANGED BY CoFHTalentTweaks
                     // player experience is now based on damage and get x0,5 of it
                     // var experienceMultiplier = hitHead ? player.User.Talentset.HasTalent(typeof(HuntingDeadeyeTalent)) ? 1f * this.Damage : 0.75f * this.Damage : 0.5f * this.Damage;
                     // player will do x1,5 damage when hit head and x2 if they have HuntingDeadeyeTalent
                     // var locationMultiplier = hitHead ? player.User.Talentset.HasTalent(typeof(HuntingDeadeyeTalent)) ? 2f : 1.5f : 1f;
+                    #endregion
+
                     if (targetAnimal.TryApplyDamage(new(), player, this.Damage * locationMultiplier, new() { TargetObjNetID = targetAnimal.ID }, this.BowItem, out float damageDealt, typeof(ArrowItem), experienceMultiplier).TryPerform(player.User))
                     {
                         hitAttachInfo.HitInfo = Text.Color(hitHead ? Color.Red.HexRGBA : Color.Orange.HexRGBA, Text.Num(damageDealt));
