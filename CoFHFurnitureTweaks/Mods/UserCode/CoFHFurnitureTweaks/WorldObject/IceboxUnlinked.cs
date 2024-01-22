@@ -51,27 +51,29 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(PropertyAuthComponent))]
     // [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    // [RequireComponent(typeof(PublicStorageComponent))]
+    [RequireComponent(typeof(PublicStorageComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
     [RequireComponent(typeof(RoomRequirementsComponent))]
     [RequireRoomContainment]
-    [RequireRoomVolume(4)]
+    [RequireRoomVolume(8)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Living Room", subPageName: "Shelf Cabinet Item")]
-    public partial class ShelfCabinetSealedObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Kitchen", subPageName: "Icebox Item")]
+    public partial class IceboxUnlinkedObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(ShelfCabinetSealedItem);
-        public override LocString DisplayName => Localizer.DoStr("Shelf Cabinet (Sealed)");
+        public virtual Type RepresentedItemType => typeof(IceboxUnlinkedItem);
+        public override LocString DisplayName => Localizer.DoStr("Icebox (Unlinked)");
         public override TableTextureMode TableTexture => TableTextureMode.Wood;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<HousingComponent>().HomeValue = ShelfCabinetSealedItem.homeValue;
-            // var storage = this.GetComponent<PublicStorageComponent>();
-            // storage.Initialize(8);
-            // storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
+            this.GetComponent<HousingComponent>().HomeValue = IceboxUnlinkedItem.homeValue;
+            var storage = this.GetComponent<PublicStorageComponent>();
+            storage.Initialize(16);
+            storage.Storage.AddInvRestriction(new StackLimitRestriction(200));
+            storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
+            storage.ShelfLifeMultiplier = 1.6f;
             this.ModsPostInitialize();
         }
 
@@ -82,28 +84,31 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Shelf Cabinet (Sealed)")]
-    [LocDescription("When a shelf and a cabinet aren't enough individually.")]
-    [Ecopedia("Housing Objects", "Living Room", createAsSubPage: true)]
+    [LocDisplayName("Icebox (Unlinked)")]
+    [LocDescription("A box of ice. It's in the name!")]
+    [Ecopedia("Housing Objects", "Kitchen", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(2000)] // Defines how heavy ShelfCabinet is.
-    public partial class ShelfCabinetSealedItem : WorldObjectItem<ShelfCabinetSealedObject>
+    [Weight(1000)] // Defines how heavy Icebox is.
+    public partial class IceboxUnlinkedItem : WorldObjectItem<IceboxUnlinkedObject>
     {
+        [NewTooltip(CacheAs.SubType, 50)] public static LocString UpdateTooltip() => Localizer.Do($"{Localizer.DoStr("Increases")} total shelf life by: {Text.InfoLight(Text.Percent(0.6f))}").Dash();
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(ShelfCabinetSealedObject).UILink(),
-            Category                                = HousingConfig.GetRoomCategory("Living Room"),
-            BaseValue                               = 2,
-            TypeForRoomLimit                        = Localizer.DoStr("Shelves"),
-            DiminishingReturnMultiplier                = 0.5f
+            ObjectName                              = typeof(IceboxUnlinkedObject).UILink(),
+            Category                                = HousingConfig.GetRoomCategory("Kitchen"),
+            BaseValue                               = 1.5f,
+            TypeForRoomLimit                        = Localizer.DoStr("Food Storage"),
+            DiminishingReturnMultiplier                = 0.3f
             
         };
 
-        static ShelfCabinetSealedItem()
+        static IceboxUnlinkedItem()
         {
-            WorldObject.AddOccupancy<ShelfCabinetSealedObject>(new List<BlockOccupancy>(){
+            WorldObject.AddOccupancy<IceboxUnlinkedObject>(new List<BlockOccupancy>(){
+                new BlockOccupancy(new Vector3i(-1, 0, 0)),
+                new BlockOccupancy(new Vector3i(-1, 1, 0)),
                 new BlockOccupancy(new Vector3i(0, 0, 0)),
                 new BlockOccupancy(new Vector3i(0, 1, 0)),
             });

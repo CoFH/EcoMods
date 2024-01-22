@@ -51,31 +51,31 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(PropertyAuthComponent))]
     // [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    // [RequireComponent(typeof(PublicStorageComponent))]
+    [RequireComponent(typeof(PublicStorageComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
-    // [RequireComponent(typeof(WardrobeComponent))]
+    [RequireComponent(typeof(WardrobeComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
     [RequireComponent(typeof(RoomRequirementsComponent))]
     [RequireRoomContainment]
     [RequireRoomVolume(12)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Softwood Lumber Dresser Item")]
-    public partial class SoftwoodLumberDresserSealedObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Lumber Dresser Item")]
+    public partial class LumberDresserUnlinkedObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(SoftwoodLumberDresserSealedItem);
-        public override LocString DisplayName => Localizer.DoStr("Softwood Lumber Dresser (Sealed)");
+        public virtual Type RepresentedItemType => typeof(LumberDresserUnlinkedItem);
+        public override LocString DisplayName => Localizer.DoStr("Lumber Dresser (Unlinked)");
         public override TableTextureMode TableTexture => TableTextureMode.Wood;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<HousingComponent>().HomeValue = SoftwoodLumberDresserSealedItem.homeValue;
-            // var storage = this.GetComponent<PublicStorageComponent>();
-            // storage.Initialize(16);
-            // storage.Storage.AddInvRestriction(new ClothItemRestriction());
-            // storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
-            // var wardrobe = this.GetComponent<WardrobeComponent>();
-            // wardrobe.Initialize();
+            this.GetComponent<HousingComponent>().HomeValue = LumberDresserUnlinkedItem.homeValue;
+            var storage = this.GetComponent<PublicStorageComponent>();
+            storage.Initialize(16);
+            storage.Storage.AddInvRestriction(new ClothItemRestriction());
+            storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
+            var wardrobe = this.GetComponent<WardrobeComponent>();
+            wardrobe.Initialize();
             this.ModsPostInitialize();
         }
 
@@ -86,18 +86,18 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Softwood Lumber Dresser (Sealed)")]
+    [LocDisplayName("Lumber Dresser (Unlinked)")]
     [LocDescription("A lumber dresser that lets you store your clothing and quickly switch between a designated outfit and whatever you are currently wearing.")]
     [Ecopedia("Housing Objects", "Bedroom", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(2000)] // Defines how heavy SoftwoodLumberDresser is.
-    public partial class SoftwoodLumberDresserSealedItem : WorldObjectItem<SoftwoodLumberDresserSealedObject>
+    [Weight(2000)] // Defines how heavy LumberDresser is.
+    public partial class LumberDresserUnlinkedItem : WorldObjectItem<LumberDresserUnlinkedObject>
     {
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(SoftwoodLumberDresserSealedObject).UILink(),
+            ObjectName                              = typeof(LumberDresserUnlinkedObject).UILink(),
             Category                                = HousingConfig.GetRoomCategory("Bedroom"),
             BaseValue                               = 3,
             TypeForRoomLimit                        = Localizer.DoStr("Dresser"),
@@ -105,9 +105,9 @@ namespace Eco.Mods.TechTree
             
         };
 
-        static SoftwoodLumberDresserSealedItem()
+        static LumberDresserUnlinkedItem()
         {
-            WorldObject.AddOccupancy<SoftwoodLumberDresserSealedObject>(new List<BlockOccupancy>(){
+            WorldObject.AddOccupancy<LumberDresserUnlinkedObject>(new List<BlockOccupancy>(){
                 new BlockOccupancy(new Vector3i(-1, 0, 0)),
                 new BlockOccupancy(new Vector3i(-1, 1, 0)),
                 new BlockOccupancy(new Vector3i(0, 0, 0)),

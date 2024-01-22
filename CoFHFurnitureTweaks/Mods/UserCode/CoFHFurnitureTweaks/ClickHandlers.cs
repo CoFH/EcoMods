@@ -16,17 +16,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new BookshelfSealedItem();
-            return "Sealed";
+            itemStack.Item = new BookshelfUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class BookshelfSealedItem {
+    public partial class BookshelfUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new BookshelfItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 
@@ -34,17 +34,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new HardwoodLumberDresserSealedItem();
-            return "Sealed";
+            itemStack.Item = new HardwoodLumberDresserUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class HardwoodLumberDresserSealedItem {
+    public partial class HardwoodLumberDresserUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new HardwoodLumberDresserItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 
@@ -52,17 +52,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new HewnDresserSealedItem();
-            return "Sealed";
+            itemStack.Item = new HewnDresserUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class HewnDresserSealedItem {
+    public partial class HewnDresserUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new HewnDresserItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 
@@ -70,17 +70,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new IceboxSealedItem();
-            return "Sealed";
+            itemStack.Item = new IceboxUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class IceboxSealedItem {
+    public partial class IceboxUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new IceboxItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 
@@ -88,17 +88,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new LumberDresserSealedItem();
-            return "Sealed";
+            itemStack.Item = new LumberDresserUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class LumberDresserSealedItem {
+    public partial class LumberDresserUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new LumberDresserItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 
@@ -106,17 +106,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new RefrigeratorSealedItem();
-            return "Sealed";
+            itemStack.Item = new RefrigeratorUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class RefrigeratorSealedItem {
+    public partial class RefrigeratorUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new RefrigeratorItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 
@@ -124,17 +124,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new ShelfCabinetSealedItem();
-            return "Sealed";
+            itemStack.Item = new ShelfCabinetUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class ShelfCabinetSealedItem {
+    public partial class ShelfCabinetUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new ShelfCabinetItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 
@@ -142,17 +142,17 @@ namespace Eco.Mods.TechTree
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
-            itemStack.Item = new SoftwoodLumberDresserSealedItem();
-            return "Sealed";
+            itemStack.Item = new SoftwoodLumberDresserUnlinkedItem();
+            return "Unlinked";
         }
     }
 
-    public partial class SoftwoodLumberDresserSealedItem {
+    public partial class SoftwoodLumberDresserUnlinkedItem {
 
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new SoftwoodLumberDresserItem();
-            return "Unsealed";
+            return "UnUnlinked";
         }
     }
 }

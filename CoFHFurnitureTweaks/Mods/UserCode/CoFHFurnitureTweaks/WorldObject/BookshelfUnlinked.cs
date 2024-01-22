@@ -51,31 +51,27 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(PropertyAuthComponent))]
     // [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    // [RequireComponent(typeof(PublicStorageComponent))]
+    [RequireComponent(typeof(PublicStorageComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
-    // [RequireComponent(typeof(WardrobeComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
     [RequireComponent(typeof(RoomRequirementsComponent))]
     [RequireRoomContainment]
-    [RequireRoomVolume(12)]
+    [RequireRoomVolume(4)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Bedroom", subPageName: "Hardwood Lumber Dresser Item")]
-    public partial class HardwoodLumberDresserSealedObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Living Room", subPageName: "Bookshelf Item")]
+    public partial class BookshelfUnlinkedObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(HardwoodLumberDresserSealedItem);
-        public override LocString DisplayName => Localizer.DoStr("Hardwood Lumber Dresser (Sealed)");
+        public virtual Type RepresentedItemType => typeof(BookshelfUnlinkedItem);
+        public override LocString DisplayName => Localizer.DoStr("Bookshelf (Unlinked)");
         public override TableTextureMode TableTexture => TableTextureMode.Wood;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<HousingComponent>().HomeValue = HardwoodLumberDresserSealedItem.homeValue;
-            // var storage = this.GetComponent<PublicStorageComponent>();
-            // storage.Initialize(16);
-            // storage.Storage.AddInvRestriction(new ClothItemRestriction());
-            // storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
-            // var wardrobe = this.GetComponent<WardrobeComponent>();
-            // wardrobe.Initialize();
+            this.GetComponent<HousingComponent>().HomeValue = BookshelfUnlinkedItem.homeValue;
+            var storage = this.GetComponent<PublicStorageComponent>();
+            storage.Initialize(8);
+            storage.Storage.AddInvRestriction(new NotCarriedRestriction()); // can't store block or large items
             this.ModsPostInitialize();
         }
 
@@ -86,34 +82,31 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Hardwood Lumber Dresser (Sealed)")]
-    [LocDescription("A lumber dresser that lets you store your clothing and quickly switch between a designated outfit and whatever you are currently wearing.")]
-    [Ecopedia("Housing Objects", "Bedroom", createAsSubPage: true)]
+    [LocDisplayName("Bookshelf (Unlinked)")]
+    [LocDescription("A place to store knowledge and information; leads to the town hall.")]
+    [Ecopedia("Housing Objects", "Living Room", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(2000)] // Defines how heavy HardwoodLumberDresser is.
-    public partial class HardwoodLumberDresserSealedItem : WorldObjectItem<HardwoodLumberDresserSealedObject>
+    [Weight(2000)] // Defines how heavy Bookshelf is.
+    public partial class BookshelfUnlinkedItem : WorldObjectItem<BookshelfUnlinkedObject>
     {
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(HardwoodLumberDresserSealedObject).UILink(),
-            Category                                = HousingConfig.GetRoomCategory("Bedroom"),
-            BaseValue                               = 3,
-            TypeForRoomLimit                        = Localizer.DoStr("Dresser"),
+            ObjectName                              = typeof(BookshelfUnlinkedObject).UILink(),
+            Category                                = HousingConfig.GetRoomCategory("Living Room"),
+            BaseValue                               = 2,
+            TypeForRoomLimit                        = Localizer.DoStr("Shelves"),
             DiminishingReturnMultiplier                = 0.5f
             
         };
 
-        static HardwoodLumberDresserSealedItem()
+        static BookshelfUnlinkedItem()
         {
-            WorldObject.AddOccupancy<HardwoodLumberDresserSealedObject>(new List<BlockOccupancy>(){
-                new BlockOccupancy(new Vector3i(-1, 0, 0)),
-                new BlockOccupancy(new Vector3i(-1, 1, 0)),
+            WorldObject.AddOccupancy<BookshelfUnlinkedObject>(new List<BlockOccupancy>(){
                 new BlockOccupancy(new Vector3i(0, 0, 0)),
                 new BlockOccupancy(new Vector3i(0, 1, 0)),
             });
         }
-
     }
 }
