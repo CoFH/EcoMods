@@ -41,7 +41,8 @@ In `/Mods/UserCode/AutoGen/Recipe`, remove the following files:
 - CornEthanol.override.cs
 - WheatEthanol.override.cs
 
-In `/Mods/UserCode/AutoGen/WorldObject`, remove the following file:
+In `/Mods/UserCode/AutoGen/WorldObject`, remove the following files:
 - Laboratory.override.cs
+- OilRefinery.override.cs
 
 - Remove the `CoFHAgriculturalScience` folder from `/Mods/UserCode`

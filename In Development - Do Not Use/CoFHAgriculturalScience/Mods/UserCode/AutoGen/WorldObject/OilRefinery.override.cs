@@ -44,34 +44,44 @@ namespace Eco.Mods.TechTree
     using Eco.Core.Controller;
     using Eco.Core.Utils;
 	using Eco.Gameplay.Components.Storage;
+    using static Eco.Gameplay.Housing.PropertyValues.HomeFurnishingValue;
     using Eco.Gameplay.Items.Recipes;
 
     [Serialized]
+    [RequireComponent(typeof(AirPollutionComponent))]
+    [RequireComponent(typeof(ChimneyComponent))]
+    [RequireComponent(typeof(LiquidProducerComponent))]
+    [RequireComponent(typeof(AttachmentComponent))]
     [RequireComponent(typeof(OnOffComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
     [RequireComponent(typeof(MinimapComponent))]
     [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(CraftingComponent))]
+    [RequireComponent(typeof(FuelSupplyComponent))]
+    [RequireComponent(typeof(FuelConsumptionComponent))]
+    [RequireComponent(typeof(HousingComponent))]
     [RequireComponent(typeof(OccupancyRequirementComponent))]
     [RequireComponent(typeof(LiquidConverterComponent))]
     [RequireComponent(typeof(PluginModulesComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
-    [RequireComponent(typeof(RoomRequirementsComponent))]
-    [RequireRoomContainment]
-    [RequireRoomVolume(24)]
-    [RequireRoomMaterialTier(1.8f, typeof(CuttingEdgeCookingLavishReqTalent), typeof(CuttingEdgeCookingFrugalReqTalent))]
     [Tag("Usable")]
-    [Ecopedia("Work Stations", "Researching", subPageName: "Laboratory Item")]
-    public partial class LaboratoryObject : WorldObject, IRepresentsItem
+    [Ecopedia("Work Stations", "Craft Tables", subPageName: "Oil Refinery Item")]
+    public partial class OilRefineryObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(LaboratoryItem);
-        public override LocString DisplayName => Localizer.DoStr("Laboratory");
+        public virtual Type RepresentedItemType => typeof(OilRefineryItem);
+        public override LocString DisplayName => Localizer.DoStr("Oil Refinery");
         public override TableTextureMode TableTexture => TableTextureMode.Metal;
+        private static string[] fuelTagList = new[] { "Burnable Fuel" }; //noloc
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
             this.GetComponent<MinimapComponent>().SetCategory(Localizer.DoStr("Crafting"));
+            this.GetComponent<FuelSupplyComponent>().Initialize(2, fuelTagList);
+            this.GetComponent<FuelConsumptionComponent>().Initialize(50);
+            this.GetComponent<HousingComponent>().HomeValue = OilRefineryItem.homeValue;
+            this.GetComponent<LiquidProducerComponent>().Setup(typeof(SmogItem), 1.4f, BlockOccupancyType.ChimneyOut);
+            this.GetComponent<AirPollutionComponent>().Initialize(this.GetComponent<LiquidProducerComponent>());
             this.GetComponent<LiquidConverterComponent>().Setup(typeof(WaterItem), typeof(SewageItem), BlockOccupancyType.WaterInputPort, BlockOccupancyType.SewageOutputPort, 0.3f, 0.9f);
             this.ModsPostInitialize();
         }
@@ -83,22 +93,32 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Laboratory")]
-    [LocDescription("For more advanced research and manufacturing. Science rules!")]
+    [LocDisplayName("Oil Refinery")]
+    [LocDescription("Sets of pipes and tanks which refine crude petroleum into usable products.")]
     [IconGroup("World Object Minimap")]
-    [Ecopedia("Work Stations", "Researching", createAsSubPage: true)]
-    [Weight(2000)] // Defines how heavy Laboratory is.
-    // CHANGED BY CoFHAgriculturalScience: [AllowPluginModules(Tags = new[] { "ModernUpgrade" }, ItemTypes = new[] { typeof(CuttingEdgeCookingUpgradeItem) })] //noloc
-    [AllowPluginModules(Tags = new[] { "ModernUpgrade" }, ItemTypes = new[] { typeof(CuttingEdgeCookingUpgradeItem), typeof(AgriculturalScienceUpgradeItem) })] //noloc
-    public partial class LaboratoryItem : WorldObjectItem<LaboratoryObject>, IPersistentData
+    [Ecopedia("Work Stations", "Craft Tables", createAsSubPage: true)]
+    [LiquidProducer(typeof(SmogItem), 1.4f)]
+    [Weight(10000)] // Defines how heavy OilRefinery is.
+    // CHANGED BY CoFHAgriculturalScience: [AllowPluginModules(Tags = new[] { "ModernUpgrade" }, ItemTypes = new[] { typeof(OilDrillingUpgradeItem) })] //noloc
+    [AllowPluginModules(Tags = new[] { "ModernUpgrade" }, ItemTypes = new[] { typeof(OilDrillingUpgradeItem), typeof(AgriculturalScienceUpgradeItem) })] //noloc
+    public partial class OilRefineryItem : WorldObjectItem<OilRefineryObject>, IPersistentData
     {
         protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
+        public override HomeFurnishingValue HomeValue => homeValue;
+        public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
+        {
+            ObjectName                              = typeof(OilRefineryObject).UILink(),
+            Category                                = HousingConfig.GetRoomCategory("Industrial"),
+            TypeForRoomLimit                        = Localizer.DoStr(""),
+            
+        };
 
+        [NewTooltip(CacheAs.SubType, 7)] public static LocString PowerConsumptionTooltip() => Localizer.Do($"Consumes: {Text.Info(50)}w of {new HeatPower().Name} power from fuel.");
         [Serialized, SyncToView, NewTooltipChildren(CacheAs.Instance, flags: TTFlags.AllowNonControllerTypeForChildren)] public object PersistentData { get; set; }
     }
 
     /// <summary>
-    /// <para>Server side recipe definition for "Laboratory".</para>
+    /// <para>Server side recipe definition for "OilRefinery".</para>
     /// <para>More information about RecipeFamily objects can be found at https://docs.play.eco/api/server/eco.gameplay/Eco.Gameplay.Items.RecipeFamily.html</para>
     /// </summary>
     /// <remarks>
@@ -106,23 +126,23 @@ namespace Eco.Mods.TechTree
     /// If you wish to modify this class, please create a new partial class or follow the instructions in the "UserCode" folder to override the entire file.
     /// </remarks>
     [RequiresSkill(typeof(MechanicsSkill), 1)]
-    [Ecopedia("Work Stations", "Researching", subPageName: "Laboratory Item")]
-    public partial class LaboratoryRecipe : RecipeFamily
+    [Ecopedia("Work Stations", "Craft Tables", subPageName: "Oil Refinery Item")]
+    public partial class OilRefineryRecipe : RecipeFamily
     {
-        public LaboratoryRecipe()
+        public OilRefineryRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "Laboratory",  //noloc
-                displayName: Localizer.DoStr("Laboratory"),
+                name: "OilRefinery",  //noloc
+                displayName: Localizer.DoStr("Oil Refinery"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronBarItem), 20, typeof(MechanicsSkill), typeof(MechanicsLavishResourcesTalent)),
-                    new IngredientElement(typeof(GlassItem), 15, typeof(MechanicsSkill), typeof(MechanicsLavishResourcesTalent)),
-                    new IngredientElement("Lumber", 8, typeof(MechanicsSkill), typeof(MechanicsLavishResourcesTalent)), //noloc
+                    new IngredientElement(typeof(ReinforcedConcreteItem), 12, typeof(MechanicsSkill), typeof(MechanicsLavishResourcesTalent)),
+                    new IngredientElement(typeof(IronBarItem), 16, typeof(MechanicsSkill), typeof(MechanicsLavishResourcesTalent)),
+                    new IngredientElement(typeof(IronGearItem), 24, typeof(MechanicsSkill), typeof(MechanicsLavishResourcesTalent)),
                 },
 
                 // Define our recipe output items.
@@ -130,24 +150,24 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<LaboratoryItem>()
+                    new CraftingElement<OilRefineryItem>()
                 });
             this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 20; // Defines how much experience is gained when crafted.
+            this.ExperienceOnCraft = 40; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(120, typeof(MechanicsSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(420, typeof(MechanicsSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(LaboratoryRecipe), start: 15, skillType: typeof(MechanicsSkill), typeof(MechanicsFocusedSpeedTalent), typeof(MechanicsParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(OilRefineryRecipe), start: 20, skillType: typeof(MechanicsSkill), typeof(MechanicsFocusedSpeedTalent), typeof(MechanicsParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Laboratory"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Oil Refinery"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Laboratory"), recipeType: typeof(LaboratoryRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Oil Refinery"), recipeType: typeof(OilRefineryRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
-            CraftingComponent.AddRecipe(tableType: typeof(MachinistTableObject), recipe: this);
+            CraftingComponent.AddRecipe(tableType: typeof(AssemblyLineObject), recipe: this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily before initialization. You can change recipes, xp, labor, time here.</summary>
