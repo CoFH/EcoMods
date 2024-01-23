@@ -39,6 +39,7 @@ namespace Eco.Mods.TechTree
     /// This is an auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization. 
     /// If you wish to modify this class, please create a new partial class or follow the instructions in the "UserCode" folder to override the entire file.
     /// </remarks>
+    // CHANGED BY CoFHAgriculturalScience: [RequiresSkill(typeof(OilDrillingSkill), 5)]
     [RequiresSkill(typeof(AgriculturalScienceSkill), 3)]
     [Ecopedia("Blocks", "Liquids", subPageName: "Biodiesel Item")]
     public partial class BiodieselRecipe : RecipeFamily
@@ -70,9 +71,11 @@ namespace Eco.Mods.TechTree
             this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
+            // CHANGED BY CoFHAgriculturalScience: this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(OilDrillingSkill));
             this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
+            // CHANGED BY CoFHAgriculturalScience: this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(BiodieselRecipe), start: 0.8f, skillType: typeof(OilDrillingSkill), typeof(OilDrillingFocusedSpeedTalent), typeof(OilDrillingParallelSpeedTalent));
             this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(BiodieselRecipe), start: 0.8f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Biodiesel"
@@ -93,7 +96,8 @@ namespace Eco.Mods.TechTree
 
     [Serialized]
     [Solid]
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 5)]
+    // CHANGED BY CoFHAgriculturalScience: [RequiresSkill(typeof(OilDrillingSkill), 5)]
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 3)]
         public partial class BiodieselBlock :
         PickupableBlock
         , IRepresentsItem
