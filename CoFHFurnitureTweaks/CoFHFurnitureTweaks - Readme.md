@@ -15,6 +15,9 @@ This feature works with the following furniture items:
 - Refrigerator
 - Shelf Cabinet
 
+If you like what you see here, you should check out Team CoFH's Minecraft mods.
+[Team CoFH Discord](https://discord.gg/uRKrnbH)
+
 ## Installation Instructions:
 
 - Extract/copy the `/Mods` folder in this zip file into the root folder for your Eco server.

@@ -7,7 +7,7 @@ However, to do this (and properly update the Ecopedia), it is a highly invasive 
 Normally, I try and tag all of my changes in `.override` files with a comment or region which states "CHANGED BY {Mod Name}" but in this particular case I've had to overwrite so many files that I *highly* recommend just running the install/uninstall scripts and not trying to reproduce or modify the changes. Most of the files do have these tags, but the Fertilizers do not. Essentially, any reference to the Fertilizers skill or talents has been replaced with the Farming equivalents.
 
 If you like what you see here, you should check out Team CoFH's Minecraft mods.
-![Team CoFH Discord](https://discord.gg/uRKrnbH)
+[Team CoFH Discord](https://discord.gg/uRKrnbH)
 
 ## Installation Instructions:
 

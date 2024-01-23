@@ -17,7 +17,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new BookshelfHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -26,7 +26,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new BookshelfItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 
@@ -35,7 +35,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new HardwoodLumberDresserHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -44,7 +44,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new HardwoodLumberDresserItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 
@@ -53,7 +53,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new HewnDresserHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -62,7 +62,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new HewnDresserItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 
@@ -71,7 +71,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new IceboxHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -80,7 +80,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new IceboxItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 
@@ -89,7 +89,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new LumberDresserHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -98,7 +98,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new LumberDresserItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 
@@ -107,7 +107,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new RefrigeratorHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -116,7 +116,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new RefrigeratorItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 
@@ -125,7 +125,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new ShelfCabinetHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -134,7 +134,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new ShelfCabinetItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 
@@ -143,7 +143,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new SoftwoodLumberDresserHiddenItem();
-            return "Hidden";
+            return "Inventory Hidden";
         }
     }
 
@@ -152,7 +152,7 @@ namespace Eco.Mods.TechTree
         public override string OnUsed(Player player, ItemStack itemStack)
         {
             itemStack.Item = new SoftwoodLumberDresserItem();
-            return "UnHidden";
+            return "Inventory Visible";
         }
     }
 }

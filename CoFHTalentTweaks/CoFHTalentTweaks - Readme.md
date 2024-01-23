@@ -3,7 +3,7 @@
 Simple mod which fixes up some issues with talents which were explicitly or implicitly unimplemented/non-functional. Descriptions have been changed to match the new implementations, as the talents as written in vanilla are either non-feasible or meaningless. Changes to files in `/AutoGen` have been marked with `CHANGED BY CoFHTalentTweaks` as comments.
 
 If you like what you see here, you should check out Team CoFH's Minecraft mods.
-![Team CoFH Discord](https://discord.gg/uRKrnbH)
+[Team CoFH Discord](https://discord.gg/uRKrnbH)
 
 ## New/Fixed:
 
