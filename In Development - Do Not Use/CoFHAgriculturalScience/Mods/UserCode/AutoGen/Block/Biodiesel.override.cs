@@ -56,7 +56,8 @@ namespace Eco.Mods.TechTree
                 ingredients: new List<IngredientElement>
                 {
                     new IngredientElement(typeof(EthanolItem), 4, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
-                    new IngredientElement("Fat", 5, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)), //noloc
+                    // CHANGED BY CoFHAgricultureScience: new IngredientElement("Fat", 5, typeof(OilDrillingSkill), typeof(OilDrillingLavishResourcesTalent)), //noloc
+                    new IngredientElement("Fat", 3, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)), //noloc
                     new IngredientElement(typeof(BarrelItem), 1, true),
                 },
 

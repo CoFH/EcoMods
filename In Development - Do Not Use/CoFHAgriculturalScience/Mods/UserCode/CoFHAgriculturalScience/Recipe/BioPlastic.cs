@@ -38,8 +38,8 @@
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(BeanPasteItem), 4, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
-                    new IngredientElement(typeof(CelluloseFiberItem), 1, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
+                    new IngredientElement(typeof(BeanPasteItem), 6, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
+                    new IngredientElement(typeof(CelluloseFiberItem), 6, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                 },
 
                 // Define our recipe output items.
