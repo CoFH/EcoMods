@@ -20,7 +20,7 @@ namespace Eco.Mods.TechTree
         public BlendedGasolineRecipe()
         {
             this.Init(
-                name: "BlendedGasoline",  //noloc
+                name: "AgSciBlendedGasoline",  //noloc
                 displayName: Localizer.DoStr("Blended Gasoline"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs

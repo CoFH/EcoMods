@@ -31,7 +31,7 @@
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "Bio-Epoxy",  //noloc
+                name: "AgSciBio-Epoxy",  //noloc
                 displayName: Localizer.DoStr("Bio-Epoxy"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs

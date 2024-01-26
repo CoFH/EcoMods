@@ -22,7 +22,7 @@
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "CellulosicEthanol",  //noloc
+                name: "AgSciCellulosicEthanol",  //noloc
                 displayName: Localizer.DoStr("Cellulosic Ethanol"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs

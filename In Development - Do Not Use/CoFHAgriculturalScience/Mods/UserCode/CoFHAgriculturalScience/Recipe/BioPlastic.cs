@@ -31,7 +31,7 @@
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "Bio-Plastic",  //noloc
+                name: "AgSciBio-Plastic",  //noloc
                 displayName: Localizer.DoStr("Bio-Plastic"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
