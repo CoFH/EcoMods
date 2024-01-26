@@ -55,9 +55,10 @@ namespace Eco.Mods.TechTree
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
+                    // CHANGED BY CoFHAgricultureScience: new IngredientElement(typeof(EthanolItem), 4, typeof(OilDrillingSkill), typeof(OilDrillingLavishResourcesTalent)),
                     new IngredientElement(typeof(EthanolItem), 4, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                     // CHANGED BY CoFHAgricultureScience: new IngredientElement("Fat", 5, typeof(OilDrillingSkill), typeof(OilDrillingLavishResourcesTalent)), //noloc
-                    new IngredientElement("Fat", 3, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)), //noloc
+                    new IngredientElement("Fat", 4, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)), //noloc
                     new IngredientElement(typeof(BarrelItem), 1, true),
                 },
 

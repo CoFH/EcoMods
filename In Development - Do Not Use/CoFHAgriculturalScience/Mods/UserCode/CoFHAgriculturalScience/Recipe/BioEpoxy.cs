@@ -23,7 +23,7 @@
     using Eco.Core.Controller;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 1)]
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 2)]
     [Ecopedia("Items", "Products", subPageName: "Epoxy Item")]
     public partial class BioEpoxyRecipe : RecipeFamily
     {
