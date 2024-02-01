@@ -2,7 +2,7 @@
 
 This mod does two major things:
 
-- Allows a number of housing decoration objects to be placed on top of tables and other surfaces. Unfortunately, `.override` files are the only feasible way to do this at present - I spent a lot of time trying to NOT do it that way. Note: This feature exists in ![Off the Floor](https://mod.io/g/eco/m/off-the-floor); I actually developed this independently but being intellectually honest, there is only one way to do this at the moment so obviously generally the same lines will be commented out. If you *only* want this feature, then I recommend using that mod instead.
+- Allows a number of housing decoration objects to be placed on top of tables and other surfaces. Unfortunately, `.override` files are the only feasible way to do this at present - I spent a lot of time trying to NOT do it that way. Note: This feature exists in [Off the Floor](https://mod.io/g/eco/m/off-the-floor); I actually developed this independently but being intellectually honest, there is only one way to do this at the moment so obviously generally the same lines will be commented out. If you *only* want this feature, then I recommend using that mod instead.
 
 - Allows furniture items which have inventories to have keep them hidden from other inventories (this prevents linking *to* them - you can still see nearby inventories when you use the objects). Handy if you have a bunch of these objects in your house but do not want to deal with sorting them in all of your Stockpiles or Crafting Tables. All furniture items which have this functionality can be converted between the two variants (Normal/Hidden) by right-clicking on the item in your inventory.
 

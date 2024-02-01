@@ -36,6 +36,9 @@ Mix Soil:
 Wet Tailings Stabilization:
 - 4 Wet Tailings + 2 Quicklime -> 4 Tailings (Scales with Efficiency) (Advanced Masonry 3; Cement Kiln, 180 Calories, 1 XP, 4.8 Minutes)
 
+Windmill (Cotton Fabric):
+- 12 Cotton Fabric + 15 Hewn Logs -> Windmill (Basic Engineering 1; Carpentry Table, 180 Calories, 8 XP, 5 Minutes)
+
 ### Rationale:
 
 Fishing falls off really early and there is a lot of pressure on Millers to produce Oils (especially with Flaxseeds). This eases a bit of that pressure and boosts Hunting (Fishing) as a profession.
@@ -44,21 +47,27 @@ Compost sucks. Soil (Dirt) is made from a combination of silt, clay, sand, and o
 
 Wet Tailings can be processed/stabilized. Using Quicklime is actually how it is done. It doesn't magically make them non-polluting but it DOES reduce their volume and their propensity for seepage. It basically dries them out. So that's what this does.
 
-## Advanced Smelting (in `/AutoGen`):
+The Windmill recipe is literally just a Linen -> Cotton Swap and allows for a bit more flexibility in material.
+
+## `/AutoGen` Recipes:
+
+Fiberglass:
+- Crafted in Spin Melter (Instead of Electronics Assembly)
 
 Rebar:
 - 1 Steel Bar -> 1 Rebar (-1 Steel Bar Required)
+- Crafted in Rolling Mill (Instead of Blast Furnace)
 
 Rivets:
 - 1 Steel Bar -> 4 Rivets (+1 Rivet Produced)
-- Crafted in Anvil
+- Crafted in Anvil (Instead of Blast Furnace)
 
 Steel Pipe:
-- Crafted in Anvil
+- Crafted in Anvil (Instead of Blast Furnace)
 
 ### Rationale:
 
-These recipes all make more sense on an Anvil than a Blast Furnace, and the upgrade level is the same, so there's not really a balance issue. (You can find a video on YouTube of a guy making a rivet on an anvil, if you are curious.) Rebar's cost for only being used in a T3 material is just a little too pricey to justify, and Rivets also felt slightly too expensive for what they are. Since Screws are produced 4 at a time (and Nails 16), 4 seemed like a good round number to use.
+These recipes all make a bit more sense in other workstations, and the upgrade level is the same, so there's not really a balance issue. (You can find a video on YouTube of a guy making a rivet on an anvil, if you are curious.) Rebar's cost for only being used in a T3 material is just a little too pricey to justify, and Rivets also felt slightly too expensive for what they are. Since Screws are produced 4 at a time (and Nails 16), 4 seemed like a good round number to use. For Fiberglass, look up how it's made and you can see this is the more appropriate workstation for it. It also gives the Spin Melter another recipe which is definitely needs - Nylon Thread just isn't *that* in demand.
 
 ## Research Paper Changes:
 
@@ -66,7 +75,7 @@ These recipes all make more sense on an Anvil than a Blast Furnace, and the upgr
 
 ### Rationale:
 
-Paper Milling needs the help. And...they're literally called Papers.
+Paper Milling needs the help. And...they're literally called Papers. It doesn't apply to Advanced and Basic because that would entail a massive rework of everything and be generally unfun.
 
 ## Installation Instructions:
 
@@ -78,6 +87,7 @@ In `/Mods/UserCode/AutoGen/Block`, remove the following files:
 - `SteelPipe.override.cs`
 
 In `/Mods/UserCode/AutoGen/Item`, remove the following files:
+- `Fiberglass.override.cs`
 - `Rebar.override.cs`
 - `Rivet.override.cs`
 
