@@ -32,12 +32,16 @@ namespace Eco.Gameplay.Items
 
     [Serialized] // Tells the save/load system this object needs to be serialized. 
     [LocDisplayName("Activated Charcoal")] // Defines the localized name of the item.
-    [LocDescription("Charcoal which has been pulverized and treated to massively increase its absorbency. Remediates Ground Pollution.")] //The tooltip description for the item.
-    [Weight(250)] // Defines how heavy ActivatedCharcoal is.
+    [LocDescription("Charcoal which has been pulverized and chemically treated to massively increase its adsorbency. Remediates Ground Pollution.")] //The tooltip description for the item.
+    [Weight(500)] // Defines how heavy ActivatedCharcoal is.
     [Category("Tool")] // Gives this item the category of "Tool" for organization
     [MaxStackSize(50)]
-    public partial class ActivatedCharcoalItem : Item, IInteractor
+    public partial class ActivatedCharcoalItem : ToolItem, IInteractor, IStackableMergable
     {
+        public override IDynamicValue CaloriesBurn => new ConstantValue(0);
+
+        public override float DurabilityRate => 0.0f;
+
         [Interaction(InteractionTrigger.RightClick, tags: new string[] { BlockTags.Samplable, BlockTags.Clearable })]
         public bool ApplyToSoil(Player player, InteractionTriggerInfo triggerInfo, InteractionTarget target)
         {
@@ -50,6 +54,9 @@ namespace Eco.Gameplay.Items
         {
             if (!target.IsBlock) return false;
 
+            var climateSim = WorldLayerManager.Obj.ClimateSim;
+            if (climateSim.GroundPollution.EntryWorldPos(target.BlockPosition.Value.XZ) <= 0) return false;
+
             var pack = new GameActionPack(new FertilizeAction()
             {
                 ActionLocation = target.BlockPosition.Value,   
@@ -60,9 +67,26 @@ namespace Eco.Gameplay.Items
             pack.GetOrCreateInventoryChangeSet(player.User.Inventory, player.User).RemoveItem(this.Type);
 
             // If everything goes well, adjust Ground Pollution.
-            pack.AddPostEffect(()=> {WorldLayerManager.Obj.ClimateSim.AddGroundPollution(target.BlockPosition.Value.XZ, -1f);});
+            pack.AddPostEffect(()=>
+            { 
+                climateSim.AddGroundPollution(target.BlockPosition.Value.XZ, -1f);
+                if (climateSim.GroundPollution.EntryWorldPos(target.BlockPosition.Value.XZ) <= 0)
+                {
+                    climateSim.GroundPollution.SetAtWorldPos(target.BlockPosition.Value.XZ, 0);
+                    climateSim.GroundPollution.Modify();
+                }
+            });
 
             return pack.TryPerform(player.User);
+        }
+
+        public bool CanStack(Item stackingOntoItem) => true;
+
+        public int StackableQualityGroup() => 0;
+
+        public Item Merge(Item another, int first, int second)
+        {
+            return this;
         }
 
         static ActivatedCharcoalItem() { } // so static members are created

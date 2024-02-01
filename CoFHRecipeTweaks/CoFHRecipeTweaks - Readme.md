@@ -49,7 +49,7 @@ Wet Tailings can be processed/stabilized. Using Quicklime is actually how it is 
 
 The Windmill recipe is literally just a Linen -> Cotton Swap and allows for a bit more flexibility in material.
 
-## `/AutoGen` Recipes:
+## `/AutoGen` Override Files:
 
 Fiberglass:
 - Crafted in Spin Melter (Instead of Electronics Assembly)
@@ -64,6 +64,9 @@ Rivets:
 
 Steel Pipe:
 - Crafted in Anvil (Instead of Blast Furnace)
+
+Spin Melter:
+- Adjusted to allow the Modern Glassworking Upgrade
 
 ### Rationale:
 

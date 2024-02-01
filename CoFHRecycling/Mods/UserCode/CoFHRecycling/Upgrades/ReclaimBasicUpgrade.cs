@@ -186,36 +186,36 @@ namespace Eco.Mods.TechTree
         partial void ModsPostInitialize();
     }
 
-    public partial class ReclaimFertilizersUpgrade : Recipe
-    {
-        public ReclaimFertilizersUpgrade()
-        {
-            this.Init(
-                name: "ReclaimFertilizersUpgrade",  //noloc
-                displayName: Localizer.DoStr("Reclaim Basic Upgrade (Fertilizers)"),
+    // public partial class ReclaimFertilizersUpgrade : Recipe
+    // {
+    //     public ReclaimFertilizersUpgrade()
+    //     {
+    //         this.Init(
+    //             name: "ReclaimFertilizersUpgrade",  //noloc
+    //             displayName: Localizer.DoStr("Reclaim Basic Upgrade (Fertilizers)"),
 
-                // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
-                // type of the item, the amount of the item, the skill required, and the talent used.
-                ingredients: new List<IngredientElement>
-                {
-                    new IngredientElement(typeof(FertilizersUpgradeItem), 1, true)
-                },
+    //             // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
+    //             // type of the item, the amount of the item, the skill required, and the talent used.
+    //             ingredients: new List<IngredientElement>
+    //             {
+    //                 new IngredientElement(typeof(FertilizersUpgradeItem), 1, true)
+    //             },
 
-                // Define our recipe output items.
-                // For every output item there needs to be one CraftingElement entry with the type of the final item and the amount
-                // to create.
-                items: new List<CraftingElement>
-                {
-                    new CraftingElement<BasicUpgradeLvl4Item>(1)
-                });
-            // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
-            this.ModsPostInitialize();
-            CraftingComponent.AddTagProduct(typeof(ResearchTableObject), typeof(ReclaimBasicUpgradeRecipe), this);
-        }
+    //             // Define our recipe output items.
+    //             // For every output item there needs to be one CraftingElement entry with the type of the final item and the amount
+    //             // to create.
+    //             items: new List<CraftingElement>
+    //             {
+    //                 new CraftingElement<BasicUpgradeLvl4Item>(1)
+    //             });
+    //         // Perform post initialization steps for user mods and initialize our recipe instance as a tag product with the crafting system
+    //         this.ModsPostInitialize();
+    //         CraftingComponent.AddTagProduct(typeof(ResearchTableObject), typeof(ReclaimBasicUpgradeRecipe), this);
+    //     }
 
-        /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
-        partial void ModsPostInitialize();
-    }
+    //     /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
+    //     partial void ModsPostInitialize();
+    // }
 
     public partial class ReclaimGatheringBasicUpgrade : Recipe
     {

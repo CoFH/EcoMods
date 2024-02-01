@@ -47,7 +47,7 @@ namespace Eco.Mods.TechTree
             // Defines our crafting time for the recipe
             this.CraftMinutes = CreateCraftTimeValue(0.25f);
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Recycle Stone Tool"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Recycle Basic Tool"
             this.ModsPreInitialize();
             this.Initialize(displayText: Localizer.DoStr("Recycle Basic Tool"), recipeType: typeof(RecycleBasicToolRecipe));
             this.ModsPostInitialize();
