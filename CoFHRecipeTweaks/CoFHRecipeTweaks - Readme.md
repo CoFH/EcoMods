@@ -86,12 +86,15 @@ Paper Milling needs the help. And...they're literally called Papers. It doesn't 
 
 ## Uninstallation Instructions:
 
-In `/Mods/UserCode/AutoGen/Block`, remove the following files:
+In `/Mods/UserCode/AutoGen/Block`, remove the following file:
 - `SteelPipe.override.cs`
 
 In `/Mods/UserCode/AutoGen/Item`, remove the following files:
 - `Fiberglass.override.cs`
 - `Rebar.override.cs`
 - `Rivet.override.cs`
+
+In `/Mods/UserCode/AutoGen/WorldObject`, remove the following file:
+- `SpinMelter.override.cs`
 
 - Remove the `CoFHRecipeTweaks` folder from `/Mods/UserCode`
