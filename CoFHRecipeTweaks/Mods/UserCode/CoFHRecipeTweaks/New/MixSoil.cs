@@ -29,7 +29,7 @@ namespace Eco.Mods.TechTree
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(CompostItem), 4, true),
+                    new IngredientElement(typeof(CompostItem), 2, true),
                     new IngredientElement(typeof(SandItem), 3, true),
                     new IngredientElement(typeof(ClayItem), 1, true)
                 },
@@ -39,7 +39,7 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<DirtItem>(4)
+                    new CraftingElement<DirtItem>(6)
                 });
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
