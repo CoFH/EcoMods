@@ -24,7 +24,10 @@ namespace Eco.Gameplay.Systems.NewTooltip.TooltipLibraryFiles
     public static class CoFHAgriculturalScienceTooltipLibrary
     {
         [NewTooltip(CacheAs.Instance, 0, TTCat.Details)]
-        public static LocString NegativeTooltip(this CreosoteSyrupItem item) => TextLoc.NegativeLoc($"INDUCES VOMITING");
+        public static LocString Effect(this ActivatedCharcoalItem item) => TextLoc.PositiveLoc($"Remediates Ground Pollution.");
+
+        [NewTooltip(CacheAs.Instance, 0, TTCat.Details)]
+        public static LocString Effect(this CreosoteSyrupItem item) => TextLoc.NegativeLoc($"Empties stomach contents.");
 
         [NewTooltip(CacheAs.Instance, 500, TTCat.Controls)]
         public static LocString ControlsTooltip(this CreosoteSyrupItem item) => TextLoc.ControlsLoc($"[Right-click to consume]");

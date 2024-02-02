@@ -32,7 +32,7 @@ namespace Eco.Gameplay.Items
 
     [Serialized] // Tells the save/load system this object needs to be serialized. 
     [LocDisplayName("Activated Charcoal")] // Defines the localized name of the item.
-    [LocDescription("Charcoal which has been pulverized and chemically treated to massively increase its adsorbency. Remediates Ground Pollution.")] //The tooltip description for the item.
+    [LocDescription("Charcoal which has been pulverized and chemically treated to massively increase its adsorbency.")] //The tooltip description for the item.
     [Weight(500)] // Defines how heavy ActivatedCharcoal is.
     [Category("Tool")] // Gives this item the category of "Tool" for organization
     [MaxStackSize(50)]
@@ -55,7 +55,7 @@ namespace Eco.Gameplay.Items
             if (!target.IsBlock) return false;
 
             var climateSim = WorldLayerManager.Obj.ClimateSim;
-            if (climateSim.GroundPollution.EntryWorldPos(target.BlockPosition.Value.XZ) <= 0) return false;
+            if (climateSim.GroundPollution.EntryWorldPos(target.BlockPosition.Value.XZ) <= 0.01) return false;
 
             var pack = new GameActionPack(new FertilizeAction()
             {
@@ -73,7 +73,6 @@ namespace Eco.Gameplay.Items
                 if (climateSim.GroundPollution.EntryWorldPos(target.BlockPosition.Value.XZ) <= 0)
                 {
                     climateSim.GroundPollution.SetAtWorldPos(target.BlockPosition.Value.XZ, 0);
-                    climateSim.GroundPollution.Modify();
                 }
             });
 

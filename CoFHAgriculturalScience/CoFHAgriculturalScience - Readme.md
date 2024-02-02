@@ -2,9 +2,7 @@
 
 This mod adds a new skill - Agricultural Science! It's meant to be a higher-tier skill in the Farmer tree which helps to keep crops a bit more relevant into the lategame.
 
-Some recipes from existing professions have been relocated to this skill.
-
-The following new items are added:
+Ethanol recipes from Cutting Edge Cooking have been relocated to this skill, effectively removing Cutting Edge Cooking from the game (Don't mourn it, it's fine).
 
 ## New Items:
 
@@ -13,8 +11,6 @@ Activated Charcoal:
 
 Creosote Syrup:
 - Consume to expel the contents of your stomach. Will also clear your calories. (This is actually a real thing - the Pima used this exact plant for this purpose.)
-
-The following new recipes are added:
 
 ## New Recipes:
 
@@ -29,6 +25,15 @@ Bio-Plastic:
 
 Biodiesel:
 - Same as Oil Drilling (Agricultural Science 3, Oil Refinery, 60 Calories, 0.8 Minutes)
+
+Blended Gasoline:
+- 3 Petroleum + 4 Ethanol -> 1 Gasoline (Alternate recipe for Gasoline and reuses its crafting parameters)
+
+Cellulosic Ethanol:
+- 40 Plant Fiber -> 1 Ethanol (Agricultural Science 5, Laboratory, 120 Calories, 2 Minutes)
+
+Corn Sugar:
+- 5 Corn -> 2 Sugar (Agricultural Science 1, Laboratory, 40 Calories, 1 Minute)
 
 Creosote Syrup:
 - 20 Creosote Flower + 1 Ethanol -> 1 Creosote Syrup (Agricultural Science 4, Laboratory, 120 Calories, 2 Minutes)
@@ -51,9 +56,5 @@ If you like what you see here, you should check out Team CoFH's Minecraft mods.
 In `/Mods/UserCode/AutoGen/Recipe`, remove the following files:
 - CornEthanol.override.cs
 - WheatEthanol.override.cs
-
-In `/Mods/UserCode/AutoGen/WorldObject`, remove the following files:
-- Laboratory.override.cs
-- OilRefinery.override.cs
 
 - Remove the `CoFHAgriculturalScience` folder from `/Mods/UserCode`
