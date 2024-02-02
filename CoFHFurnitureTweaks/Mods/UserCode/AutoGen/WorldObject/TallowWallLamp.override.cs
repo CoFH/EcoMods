@@ -50,21 +50,22 @@ namespace Eco.Mods.TechTree
     [Serialized]
     [RequireComponent(typeof(OnOffComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
+    [RequireComponent(typeof(LinkComponent))]
     [RequireComponent(typeof(FuelSupplyComponent))]
     [RequireComponent(typeof(FuelConsumptionComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    // CHANGED BY CoFHFurnitureTweaks: [RequireComponent(typeof(OccupancyRequirementComponent))]
+    [RequireComponent(typeof(OccupancyRequirementComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
     // CHANGED BY CoFHFurnitureTweaks
     // [RequireComponent(typeof(RoomRequirementsComponent))]
     // [RequireRoomContainment]
     // [RequireRoomVolume(2)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Lighting", subPageName: "Candle Stand Item")]
-    public partial class CandleStandObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Lighting", subPageName: "Tallow Wall Lamp Item")]
+    public partial class TallowWallLampObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(CandleStandItem);
-        public override LocString DisplayName => Localizer.DoStr("Candle Stand");
+        public virtual Type RepresentedItemType => typeof(TallowWallLampItem);
+        public override LocString DisplayName => Localizer.DoStr("Tallow Wall Lamp");
         private static string[] fuelTagList = new[] { "Fat" }; //noloc
 
         protected override void Initialize()
@@ -72,7 +73,7 @@ namespace Eco.Mods.TechTree
             this.ModsPreInitialize();
             this.GetComponent<FuelSupplyComponent>().Initialize(2, fuelTagList);
             this.GetComponent<FuelConsumptionComponent>().Initialize(0.2f);
-            this.GetComponent<HousingComponent>().HomeValue = CandleStandItem.homeValue;
+            this.GetComponent<HousingComponent>().HomeValue = TallowWallLampItem.homeValue;
             this.ModsPostInitialize();
         }
 
@@ -83,20 +84,20 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Candle Stand")]
-    [LocDescription("A fancy candelabra for providing small amounts of light.")]
+    [LocDisplayName("Tallow Wall Lamp")]
+    [LocDescription("A candle mounted on a wall bracket which can burn tallow to produce a small amount of light.")]
     [Ecopedia("Housing Objects", "Lighting", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(500)] // Defines how heavy CandleStand is.
-    public partial class CandleStandItem : WorldObjectItem<CandleStandObject>
+    [Weight(500)] // Defines how heavy TallowWallLamp is.
+    public partial class TallowWallLampItem : WorldObjectItem<TallowWallLampObject>
     {
-        // CHANGED BY CoFHFurnitureTweaks: protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
+        protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Backward , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(CandleStandObject).UILink(),
+            ObjectName                              = typeof(TallowWallLampObject).UILink(),
             Category                                = HousingConfig.GetRoomCategory("Lighting"),
-            BaseValue                               = 1.4f,
+            BaseValue                               = 1.2f,
             TypeForRoomLimit                        = Localizer.DoStr("Lights"),
             DiminishingReturnMultiplier                = 0.7f
             
@@ -106,7 +107,7 @@ namespace Eco.Mods.TechTree
     }
 
     /// <summary>
-    /// <para>Server side recipe definition for "CandleStand".</para>
+    /// <para>Server side recipe definition for "TallowWallLamp".</para>
     /// <para>More information about RecipeFamily objects can be found at https://docs.play.eco/api/server/eco.gameplay/Eco.Gameplay.Items.RecipeFamily.html</para>
     /// </summary>
     /// <remarks>
@@ -114,22 +115,23 @@ namespace Eco.Mods.TechTree
     /// If you wish to modify this class, please create a new partial class or follow the instructions in the "UserCode" folder to override the entire file.
     /// </remarks>
     [RequiresSkill(typeof(SmeltingSkill), 3)]
-    [Ecopedia("Housing Objects", "Lighting", subPageName: "Candle Stand Item")]
-    public partial class CandleStandRecipe : RecipeFamily
+    [Ecopedia("Housing Objects", "Lighting", subPageName: "Tallow Wall Lamp Item")]
+    public partial class TallowWallLampRecipe : RecipeFamily
     {
-        public CandleStandRecipe()
+        public TallowWallLampRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "CandleStand",  //noloc
-                displayName: Localizer.DoStr("Candle Stand"),
+                name: "TallowWallLamp",  //noloc
+                displayName: Localizer.DoStr("Tallow Wall Lamp"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
                     new IngredientElement(typeof(IronBarItem), 3, typeof(SmeltingSkill), typeof(SmeltingLavishResourcesTalent)),
-                    new IngredientElement(typeof(TallowCandleItem), 3, true),
+                    new IngredientElement(typeof(TallowItem), 4, typeof(SmeltingSkill), typeof(SmeltingLavishResourcesTalent)),
+                    new IngredientElement(typeof(CottonThreadItem), 1, true),
                 },
 
                 // Define our recipe output items.
@@ -137,20 +139,20 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<CandleStandItem>()
+                    new CraftingElement<TallowWallLampItem>()
                 });
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 3; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(SmeltingSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(50, typeof(SmeltingSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(CandleStandRecipe), start: 4, skillType: typeof(SmeltingSkill), typeof(SmeltingFocusedSpeedTalent), typeof(SmeltingParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(TallowWallLampRecipe), start: 3, skillType: typeof(SmeltingSkill), typeof(SmeltingFocusedSpeedTalent), typeof(SmeltingParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Candle Stand"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Tallow Wall Lamp"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Candle Stand"), recipeType: typeof(CandleStandRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Tallow Wall Lamp"), recipeType: typeof(TallowWallLampRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.

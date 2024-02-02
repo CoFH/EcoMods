@@ -55,9 +55,10 @@ namespace Eco.Mods.TechTree
     [RequireComponent(typeof(HousingComponent))]
     // CHANGED BY CoFHFurnitureTweaks: [RequireComponent(typeof(OccupancyRequirementComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
-    [RequireComponent(typeof(RoomRequirementsComponent))]
-    [RequireRoomContainment]
-    [RequireRoomVolume(2)]
+    // CHANGED BY CoFHFurnitureTweaks
+    // [RequireComponent(typeof(RoomRequirementsComponent))]
+    // [RequireRoomContainment]
+    // [RequireRoomVolume(2)]
     [Tag("Usable")]
     [Ecopedia("Housing Objects", "Decoration", subPageName: "Carved Pumpkin Item")]
     public partial class CarvedPumpkinObject : WorldObject, IRepresentsItem

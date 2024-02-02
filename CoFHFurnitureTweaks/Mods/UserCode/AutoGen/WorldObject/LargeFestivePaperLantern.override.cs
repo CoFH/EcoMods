@@ -50,29 +50,29 @@ namespace Eco.Mods.TechTree
     [Serialized]
     [RequireComponent(typeof(OnOffComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
-    [RequireComponent(typeof(FuelSupplyComponent))]
-    [RequireComponent(typeof(FuelConsumptionComponent))]
+    [RequireComponent(typeof(PowerGridComponent))]
+    [RequireComponent(typeof(PowerConsumptionComponent))]
     [RequireComponent(typeof(HousingComponent))]
-    // CHANGED BY CoFHFurnitureTweaks: [RequireComponent(typeof(OccupancyRequirementComponent))]
+    [RequireComponent(typeof(OccupancyRequirementComponent))]
     [RequireComponent(typeof(ForSaleComponent))]
     // CHANGED BY CoFHFurnitureTweaks
     // [RequireComponent(typeof(RoomRequirementsComponent))]
     // [RequireRoomContainment]
     // [RequireRoomVolume(2)]
     [Tag("Usable")]
-    [Ecopedia("Housing Objects", "Lighting", subPageName: "Candle Stand Item")]
-    public partial class CandleStandObject : WorldObject, IRepresentsItem
+    [Ecopedia("Housing Objects", "Lighting", subPageName: "Large Festive Paper Lantern Item")]
+    public partial class LargeFestivePaperLanternObject : WorldObject, IRepresentsItem
     {
-        public virtual Type RepresentedItemType => typeof(CandleStandItem);
-        public override LocString DisplayName => Localizer.DoStr("Candle Stand");
-        private static string[] fuelTagList = new[] { "Fat" }; //noloc
+        public virtual Type RepresentedItemType => typeof(LargeFestivePaperLanternItem);
+        public override LocString DisplayName => Localizer.DoStr("Large Festive Paper Lantern");
+        public override TableTextureMode TableTexture => TableTextureMode.Paper;
 
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<FuelSupplyComponent>().Initialize(2, fuelTagList);
-            this.GetComponent<FuelConsumptionComponent>().Initialize(0.2f);
-            this.GetComponent<HousingComponent>().HomeValue = CandleStandItem.homeValue;
+            this.GetComponent<PowerConsumptionComponent>().Initialize(60);
+            this.GetComponent<PowerGridComponent>().Initialize(10, new ElectricPower());
+            this.GetComponent<HousingComponent>().HomeValue = LargeFestivePaperLanternItem.homeValue;
             this.ModsPostInitialize();
         }
 
@@ -83,53 +83,54 @@ namespace Eco.Mods.TechTree
     }
 
     [Serialized]
-    [LocDisplayName("Candle Stand")]
-    [LocDescription("A fancy candelabra for providing small amounts of light.")]
+    [LocDisplayName("Large Festive Paper Lantern")]
+    [LocDescription("A large festive paper lantern.")]
     [Ecopedia("Housing Objects", "Lighting", createAsSubPage: true)]
     [Tag("Housing")]
-    [Weight(500)] // Defines how heavy CandleStand is.
-    public partial class CandleStandItem : WorldObjectItem<CandleStandObject>
+    [Weight(500)] // Defines how heavy LargeFestivePaperLantern is.
+    public partial class LargeFestivePaperLanternItem : WorldObjectItem<LargeFestivePaperLanternObject>
     {
-        // CHANGED BY CoFHFurnitureTweaks: protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Down , WorldObject.GetOccupancyInfo(this.WorldObjectType));
+        protected override OccupancyContext GetOccupancyContext => new SideAttachedContext( 0  | DirectionAxisFlags.Up , WorldObject.GetOccupancyInfo(this.WorldObjectType));
         public override HomeFurnishingValue HomeValue => homeValue;
         public static readonly HomeFurnishingValue homeValue = new HomeFurnishingValue()
         {
-            ObjectName                              = typeof(CandleStandObject).UILink(),
+            ObjectName                              = typeof(LargeFestivePaperLanternObject).UILink(),
             Category                                = HousingConfig.GetRoomCategory("Lighting"),
-            BaseValue                               = 1.4f,
+            BaseValue                               = 2,
             TypeForRoomLimit                        = Localizer.DoStr("Lights"),
             DiminishingReturnMultiplier                = 0.7f
             
         };
 
-        [NewTooltip(CacheAs.SubType, 7)] public static LocString PowerConsumptionTooltip() => Localizer.Do($"Consumes: {Text.Info(0.2f)}w of {new HeatPower().Name} power from fuel.");
+        [NewTooltip(CacheAs.SubType, 7)] public static LocString PowerConsumptionTooltip() => Localizer.Do($"Consumes: {Text.Info(60)}w of {new ElectricPower().Name} power.");
     }
 
     /// <summary>
-    /// <para>Server side recipe definition for "CandleStand".</para>
+    /// <para>Server side recipe definition for "LargeFestivePaperLantern".</para>
     /// <para>More information about RecipeFamily objects can be found at https://docs.play.eco/api/server/eco.gameplay/Eco.Gameplay.Items.RecipeFamily.html</para>
     /// </summary>
     /// <remarks>
     /// This is an auto-generated class. Don't modify it! All your changes will be wiped with next update! Use Mods* partial methods instead for customization. 
     /// If you wish to modify this class, please create a new partial class or follow the instructions in the "UserCode" folder to override the entire file.
     /// </remarks>
-    [RequiresSkill(typeof(SmeltingSkill), 3)]
-    [Ecopedia("Housing Objects", "Lighting", subPageName: "Candle Stand Item")]
-    public partial class CandleStandRecipe : RecipeFamily
+    [RequiresSkill(typeof(PaperMillingSkill), 1)]
+    [Ecopedia("Housing Objects", "Lighting", subPageName: "Large Festive Paper Lantern Item")]
+    public partial class LargeFestivePaperLanternRecipe : RecipeFamily
     {
-        public CandleStandRecipe()
+        public LargeFestivePaperLanternRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "CandleStand",  //noloc
-                displayName: Localizer.DoStr("Candle Stand"),
+                name: "LargeFestivePaperLantern",  //noloc
+                displayName: Localizer.DoStr("Large Festive Paper Lantern"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(IronBarItem), 3, typeof(SmeltingSkill), typeof(SmeltingLavishResourcesTalent)),
-                    new IngredientElement(typeof(TallowCandleItem), 3, true),
+                    new IngredientElement(typeof(PaperItem), 20, typeof(PaperMillingSkill), typeof(PaperMillingLavishResourcesTalent)),
+                    new IngredientElement(typeof(CottonFabricItem), 8, typeof(PaperMillingSkill), typeof(PaperMillingLavishResourcesTalent)),
+                    new IngredientElement(typeof(LightBulbItem), 1, true),
                 },
 
                 // Define our recipe output items.
@@ -137,24 +138,24 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<CandleStandItem>()
+                    new CraftingElement<LargeFestivePaperLanternItem>()
                 });
             this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 3; // Defines how much experience is gained when crafted.
+            this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(SmeltingSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(PaperMillingSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(CandleStandRecipe), start: 4, skillType: typeof(SmeltingSkill), typeof(SmeltingFocusedSpeedTalent), typeof(SmeltingParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(LargeFestivePaperLanternRecipe), start: 1, skillType: typeof(PaperMillingSkill), typeof(PaperMillingFocusedSpeedTalent), typeof(PaperMillingParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Candle Stand"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Large Festive Paper Lantern"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Candle Stand"), recipeType: typeof(CandleStandRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Large Festive Paper Lantern"), recipeType: typeof(LargeFestivePaperLanternRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
-            CraftingComponent.AddRecipe(tableType: typeof(AnvilObject), recipe: this);
+            CraftingComponent.AddRecipe(tableType: typeof(SmallPaperMachineObject), recipe: this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily before initialization. You can change recipes, xp, labor, time here.</summary>
