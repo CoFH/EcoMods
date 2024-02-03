@@ -43,7 +43,10 @@ The Windmill puts far too much pressure on Linen Fabric specifically, and theref
 ## New Recipes:
 
 Fish Oil:
-- 36 Raw Fish -> Oil (Butchery 4; Butcher's Table, 20 Calories, 0.5 XP, 3 Minutes)
+- 28 Raw Fish -> Oil (Butchery 4; Butcher's Table, 20 Calories, 0.5 XP, 3 Minutes)
+
+Fish Stock:
+- 8 Raw Fish -> Meat Stock (Cooking 2; Cast Iron Stove, 15 Calories, 1 XP, 8 Minutes)
 
 Mix Soil:
 - 3 Sand + 1 Clay + 2 Compost -> 6 Dirt (Farming 4; Farmer's Table, 50 Calories, 0.5 XP, 3 Minutes)
@@ -54,6 +57,8 @@ Wet Tailings Stabilization:
 ### Rationale:
 
 Fishing falls off really early and there is a lot of pressure on Millers to produce Oils (especially with Flaxseeds). This eases a bit of that pressure and boosts Hunting (Fishing) as a profession.
+
+Also, using Fish to ease a bit of the pressure on Meat Stock makes sense - Fish are used interchangably in many of the early Campfire Cooking recipes which use non-specific meat and this is a natural continuation of that.
 
 Compost sucks. Soil (Dirt) is made from a combination of silt, clay, sand, and organic material. This is just providing a recipe that is grounded in reality. Sand is pulling double duty as both Silt and Sand in this recipe, but it is a decent approximation.
 
@@ -73,7 +78,7 @@ Rivets:
 - Crafted in Anvil (Instead of Blast Furnace)
 
 Steel Pipe:
-- Crafted in Anvil (Instead of Blast Furnace)
+- Crafted in Rolling Mill (Instead of Blast Furnace)
 
 ### Rationale:
 

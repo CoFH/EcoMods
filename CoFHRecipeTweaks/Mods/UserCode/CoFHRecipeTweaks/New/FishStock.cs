@@ -13,22 +13,22 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Localization;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(ButcherySkill), 4)]
-    [Ecopedia("Food", "Ingredients", subPageName: "Oil Item")]
-    public partial class FishOilRecipe : RecipeFamily
+    [RequiresSkill(typeof(CookingSkill), 2)]
+    [Ecopedia("Food", "Ingredients", subPageName: "Meat Stock Item")]
+    public partial class FishStockRecipe : RecipeFamily
     {
-        public FishOilRecipe()
+        public FishStockRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "FishOil",  //noloc
-                displayName: Localizer.DoStr("Fish Oil"),
+                name: "FishStock",  //noloc
+                displayName: Localizer.DoStr("Fish Stock"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(RawFishItem), 28, typeof(ButcherySkill), typeof(ButcheryLavishResourcesTalent)),
+                    new IngredientElement(typeof(RawFishItem), 8, typeof(CookingSkill), typeof(CookingLavishResourcesTalent)),
                 },
 
                 // Define our recipe output items.
@@ -36,24 +36,24 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<OilItem>(1),
+                    new CraftingElement<MeatStockItem>(1)
                 });
             this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
-            
+            this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
+
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(20, typeof(ButcherySkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(15, typeof(CookingSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(FishOilRecipe), start: 3, skillType: typeof(ButcherySkill), typeof(ButcheryFocusedSpeedTalent), typeof(ButcheryParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(FishStockRecipe), start: 8, skillType: typeof(CookingSkill), typeof(CookingFocusedSpeedTalent), typeof(CookingParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Fish Oil"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Fish Stock"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Fish Oil"), recipeType: typeof(FishOilRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Fish Stock"), recipeType: typeof(FishStockRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
-            CraftingComponent.AddRecipe(tableType: typeof(ButcheryTableObject), recipe: this);
+            CraftingComponent.AddRecipe(tableType: typeof(CastIronStoveObject), recipe: this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily before initialization. You can change recipes, xp, labor, time here.</summary>

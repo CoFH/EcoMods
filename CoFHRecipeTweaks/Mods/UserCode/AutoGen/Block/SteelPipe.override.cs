@@ -80,7 +80,7 @@ namespace Eco.Mods.TechTree
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
             // CHANGED BY CoFHRecipeTweaks: CraftingComponent.AddRecipe(tableType: typeof(BlastFurnaceObject), recipe: this);
-            CraftingComponent.AddRecipe(tableType: typeof(AnvilObject), recipe: this);
+            CraftingComponent.AddRecipe(tableType: typeof(RollingMillObject), recipe: this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily before initialization. You can change recipes, xp, labor, time here.</summary>

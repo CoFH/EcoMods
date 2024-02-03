@@ -10,9 +10,7 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Utils;
     using Eco.World;
     using Eco.World.Blocks;
-    using Gameplay.Systems.TextLinks;
     using Eco.Shared.Localization;
-    using Eco.Core.Controller;
     using Eco.Gameplay.Items.Recipes;
 
     public partial class FlaxseedOilRecipe : RecipeFamily
