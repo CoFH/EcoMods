@@ -36,19 +36,23 @@ The headshot damage increase is now multiplicative. (Without this mod, it is add
 ## Uninstallation Instructions:
 
 In `/Mods/UserCode/AutoGen/Benefit`, remove the following files:
+
 - `CleanupCrew.override.cs`
 - `LoggersLuck.override.cs`
 - `PowerShot.override.cs`
 - `ToolStrength.override.cs`
 
 In `/Mods/UserCode/AutoGen/Tool`, remove the following files:
+
 - `CompositeBow.override.cs`
 - `RecurveBow.override.cs`
 - `WoodenBow.override.cs`
 
 In `/Mods/UserCode/Objects`, remove the following file:
+
 - `TreeObject.override.cs`
 
 In `/Mods/UserCode/Tools`, remove the following files:
+
 - `AxeItem.override.cs`
 - `BowItem.override.cs`

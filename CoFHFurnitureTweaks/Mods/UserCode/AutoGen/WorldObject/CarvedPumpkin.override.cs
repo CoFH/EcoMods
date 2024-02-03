@@ -47,6 +47,9 @@ namespace Eco.Mods.TechTree
     using static Eco.Gameplay.Housing.PropertyValues.HomeFurnishingValue;
     using Eco.Gameplay.Items.Recipes;
 
+    // CHANGED BY CoFHFurnitureTweaks
+    using CoFH.FurnitureTweaks;
+
     [Serialized]
     [RequireComponent(typeof(OnOffComponent))]
     [RequireComponent(typeof(PropertyAuthComponent))]
@@ -70,7 +73,12 @@ namespace Eco.Mods.TechTree
         protected override void Initialize()
         {
             this.ModsPreInitialize();
-            this.GetComponent<FuelSupplyComponent>().Initialize(2, fuelTagList);
+            #region CHANGED BY CoFHFurnitureTweaks
+            // this.GetComponent<FuelSupplyComponent>().Initialize(2, fuelTagList);
+            var storage = this.GetComponent<FuelSupplyComponent>();
+            storage.Initialize(2, fuelTagList);
+            storage.Inventory.ShelfLifeMultiplier = ModConfig.ShelfLifeMultiplier;
+            #endregion
             this.GetComponent<FuelConsumptionComponent>().Initialize(0.2f);
             this.GetComponent<HousingComponent>().HomeValue = CarvedPumpkinItem.homeValue;
             this.ModsPostInitialize();

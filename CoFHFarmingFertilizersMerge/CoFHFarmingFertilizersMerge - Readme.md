@@ -20,6 +20,7 @@ If you like what you see here, you should check out Team CoFH's Minecraft mods.
 ## Uninstallation Instructions:
 
 ### Automated Uninstall:
+
 - Inspect the `CoFHFarmingFertilizersMergeRemove` uninstall script you wish to use using a text editing program.
     - `.bat` for Windows
     - `.sh` for Linux/Mac
@@ -30,12 +31,14 @@ If you like what you see here, you should check out Team CoFH's Minecraft mods.
 
 ### Manual Uninstall:
 In `/Mods/__core__/Ecopedia/Reference`, remove the following files:
+
 - `Professions;Farmer.xml`
 - `Professions;Profession Overview.xml`
 
 In the *same folder* (`/Mods/__core__/Ecopedia/Reference`), you will see - `Professions;Farmer.xml.backup` and `Professions;Profession Overview.xml.backup`. Rename these files to remove the `.backup` portion of the file extension.
 
 In `/Mods/UserCode/AutoGen/Fertilizer`, remove the following files (or just the `/Fertilizer` folder):
+
 - `BerryExtractFertilizer.override.cs`
 - `BloodMealFertilizer.override.cs`
 - `CamasAshFertilizer.override.cs`
@@ -48,20 +51,26 @@ In `/Mods/UserCode/AutoGen/Fertilizer`, remove the following files (or just the 
 - `PulpFiller.override.cs`
 
 In `/Mods/UserCode/AutoGen/Item`, remove the following files:
+
 - `AgricultureResearchPaperModern.override.cs`
 - `SoilSampler.override.cs`
 
 In `/Mods/UserCode/AutoGen/PluginModule`, remove the following file:
+
 - `FertilizersUpgrade.override.cs`
 
 In `/Mods/UserCode/AutoGen/Recipe`, remove the following file:
+
 - `CompostSpoiledFood.override.cs`
 
 In `/Mods/UserCode/AutoGen/Tech`, remove the following file:
+
 - `Fertilizers.override.cs`
 
 In `/Mods/UserCode/AutoGen/WorldObject`, remove the following file:
+
 - `FarmersTable.override.cs`
 
 In `/Mods/UserCode/Systems`, remove the following file:
+
 - `DifficultyBasedRecipeVariants.override.cs`
