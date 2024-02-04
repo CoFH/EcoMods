@@ -172,5 +172,6 @@ namespace Eco.Mods.Organisms
     [Tag(BlockTags.Clearable)]
     [MoveEfficiency(0.5f)]
     public partial class KelpBlock :
-        PlantBlock { }
+        InteractablePlantBlock { }
+        // CHANGED BY CoFHPlantTweaks: PlantBlock { }
 }
