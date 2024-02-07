@@ -14,21 +14,20 @@ namespace Eco.Mods.TechTree
     using Eco.Gameplay.Items.Recipes;
 
     [RequiresSkill(typeof(ButcherySkill), 2)]
-    [Ecopedia("Food", "Ingredients", subPageName: "Oil Item")]
-    public partial class FishOilRecipe : RecipeFamily
+    public partial class StripPeltRecipe : RecipeFamily
     {
-        public FishOilRecipe()
+        public StripPeltRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "FishOil",  //noloc
-                displayName: Localizer.DoStr("Fish Oil"),
+                name: "StripPelt",  //noloc
+                displayName: Localizer.DoStr("Strip Pelt"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(RawFishItem), 28, typeof(ButcherySkill), typeof(ButcheryLavishResourcesTalent)),
+                    new IngredientElement(typeof(FurPeltItem), 1, typeof(ButcherySkill), typeof(ButcheryLavishResourcesTalent)),
                 },
 
                 // Define our recipe output items.
@@ -36,7 +35,8 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<OilItem>(1),
+                    new CraftingElement<LeatherHideItem>(1),
+                    new CraftingElement<TallowItem>(1)
                 });
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
@@ -45,11 +45,11 @@ namespace Eco.Mods.TechTree
             this.LaborInCalories = CreateLaborInCaloriesValue(20, typeof(ButcherySkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(FishOilRecipe), start: 2, skillType: typeof(ButcherySkill), typeof(ButcheryFocusedSpeedTalent), typeof(ButcheryParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(StripPeltRecipe), start: 2, skillType: typeof(ButcherySkill), typeof(ButcheryFocusedSpeedTalent), typeof(ButcheryParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Fish Oil"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Strip Pelt"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Fish Oil"), recipeType: typeof(FishOilRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Strip Pelt"), recipeType: typeof(StripPeltRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.

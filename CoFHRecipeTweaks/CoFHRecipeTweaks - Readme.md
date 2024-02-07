@@ -43,13 +43,16 @@ The Windmill puts far too much pressure on Linen Fabric specifically, and theref
 ## New Recipes:
 
 Fish Oil:
-- 28 Raw Fish -> Oil (Butchery 4; Butcher's Table, 20 Calories, 0.5 XP, 3 Minutes)
+- 28 Raw Fish -> Oil (Butchery 2; Butcher's Table, 20 Calories, 0.5 XP, 2 Minutes)
 
 Fish Stock:
 - 8 Raw Fish -> Meat Stock (Cooking 2; Cast Iron Stove, 15 Calories, 1 XP, 8 Minutes)
 
 Mix Soil:
 - 3 Sand + 1 Clay + 2 Compost -> 6 Dirt (Farming 4; Farmer's Table, 50 Calories, 0.5 XP, 3 Minutes)
+
+Strip Pelt:
+- 1 Fur Pelt -> 1 Leather Hide + 1 Tallow (Butchery 2; Butcher's Table, 20 Calories, 0.5 XP, 2 Minutes)
 
 Wet Tailings Stabilization:
 - 4 Wet Tailings + 2 Quicklime -> 4 Tailings (Scales with Efficiency) (Advanced Masonry 3; Cement Kiln, 180 Calories, 1 XP, 4.8 Minutes)
