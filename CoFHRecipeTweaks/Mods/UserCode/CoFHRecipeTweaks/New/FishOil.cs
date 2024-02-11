@@ -2,6 +2,7 @@ namespace Eco.Mods.TechTree
 {
     using System;
     using System.Collections.Generic;
+    using Eco.Core.Items;
     using Eco.Gameplay.Components;
     using Eco.Gameplay.DynamicValues;
     using Eco.Gameplay.Items;

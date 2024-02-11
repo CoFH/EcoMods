@@ -110,8 +110,8 @@ namespace Eco.Mods.Organisms
                 #region CHANGED BY CoFHPlantTweaks
                 // this.PostHarvestingGrowth = 0; // After harvesting, we reset their growth percent to this value, 0 -1.  0 means kill the plant.
                 // this.PickableAtPercent = 0; // Defines the percentage this plant can be picked at
-                this.PostHarvestingGrowth = 0.05; // After harvesting, we reset their growth percent to this value, 0 -1.  0 means kill the plant.
-                this.PickableAtPercent = 0.8; // Defines the percentage this plant can be picked at
+                this.PostHarvestingGrowth = 0.05f; // After harvesting, we reset their growth percent to this value, 0 -1.  0 means kill the plant.
+                this.PickableAtPercent = 0.8f; // Defines the percentage this plant can be picked at
                 #endregion
 
                 // Define the item types that are given to the player when gathered

@@ -1,7 +1,7 @@
 namespace CoFH.CookingFlexibility
 {
     using Eco.Core.Plugins.Interfaces;
-    ﻿using Eco.Core.Utils;
+    using Eco.Core.Utils;
     using Eco.Gameplay.Items;
     using Eco.Gameplay.Modules;
     using Eco.Mods.TechTree;
