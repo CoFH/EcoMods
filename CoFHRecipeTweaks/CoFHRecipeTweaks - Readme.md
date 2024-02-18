@@ -42,6 +42,12 @@ The Windmill puts far too much pressure on Linen Fabric specifically, and theref
 
 ## New Recipes:
 
+Bulk Compost Crops:
+- 60 Crops -> 10 Compost (Farming 3, Farmer's Table, 25 Calories, 0.5 XP, 720 Minutes)
+
+Bulk Compost Seeds:
+- 60 Seeds -> 10 Compost (Farming 3, Farmer's Table, 25 Calories, 0.5 XP, 720 Minutes)
+
 Fish Oil:
 - 28 Raw Fish -> Oil (Butchery 2; Butcher's Table, 20 Calories, 0.5 XP, 2 Minutes)
 
@@ -49,7 +55,7 @@ Fish Stock:
 - 8 Raw Fish -> Meat Stock (Cooking 2; Cast Iron Stove, 15 Calories, 1 XP, 8 Minutes)
 
 Mix Soil:
-- 3 Sand + 1 Clay + 2 Compost -> 6 Dirt (Farming 4; Farmer's Table, 50 Calories, 0.5 XP, 3 Minutes)
+- 3 Sand + 1 Clay + 2 Compost -> 6 Dirt (Farming 4; Farmer's Table, 25 Calories, 0.5 XP, 4.8 Minutes)
 
 Strip Pelt:
 - 1 Fur Pelt -> 1 Leather Hide + 1 Tallow (Butchery 2; Butcher's Table, 20 Calories, 0.5 XP, 0.8 Minutes)
@@ -58,6 +64,8 @@ Wet Tailings Stabilization:
 - 4 Wet Tailings + 2 Quicklime -> 4 Tailings (Scales with Efficiency) (Advanced Masonry 3; Cement Kiln, 180 Calories, 1 XP, 4.8 Minutes)
 
 ### Rationale:
+
+Currently, to make a bunch of compost, you run around dropping compostable items and wait 12 hours. You can even have 1 seed turn into compost. This requires 6 (same as the Compost Spoiled Food recipe), but allows it to be done in a Farmer's Table. Still takes 12 hours, though can be reduced through upgrades and talents.
 
 Fishing falls off really early and there is a lot of pressure on Millers to produce Oils (especially with Flaxseeds). This eases a bit of that pressure and boosts Hunting (Fishing) as a profession.
 

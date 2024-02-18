@@ -13,23 +13,21 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Localization;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(FarmingSkill), 4)]
-    public partial class MixSoilRecipe : RecipeFamily
+    [RequiresSkill(typeof(FarmingSkill), 3)]
+    public partial class BulkCompostCropsRecipe : RecipeFamily
     {
-        public MixSoilRecipe()
+        public BulkCompostCropsRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "MixSoil",  //noloc
-                displayName: Localizer.DoStr("Mix Soil"),
+                name: "BulkCompostCrops",  //noloc
+                displayName: Localizer.DoStr("Bulk Compost Crops"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(CompostItem), 2, true),
-                    new IngredientElement(typeof(SandItem), 3, true),
-                    new IngredientElement(typeof(ClayItem), 1, true)
+                    new IngredientElement("Crop", 60, true), //noloc
                 },
 
                 // Define our recipe output items.
@@ -37,7 +35,7 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<DirtItem>(6)
+                    new CraftingElement<CompostItem>(10)
                 });
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
@@ -46,11 +44,11 @@ namespace Eco.Mods.TechTree
             this.LaborInCalories = CreateLaborInCaloriesValue(25, typeof(FarmingSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(MixSoilRecipe), start: 4.8f, skillType: typeof(FarmingSkill), typeof(FarmingFocusedSpeedTalent), typeof(FarmingParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(BulkCompostCropsRecipe), start: 720, skillType: typeof(FarmingSkill), typeof(FarmingFocusedSpeedTalent), typeof(FarmingParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Mix Soil"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Bulk Compost Crops"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Mix Soil"), recipeType: typeof(MixSoilRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Bulk Compost Crops"), recipeType: typeof(BulkCompostCropsRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
