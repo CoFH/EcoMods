@@ -26,7 +26,7 @@ Bio-Epoxy:
 
 Bio-Plastic:
 
-- 6 Bean Paste + 6 Cellulose Fiber -> 2 Plastic (Agricultural Science 2, Laboratory, 180 Calories, 4 Minutes)
+- 8 Bean Paste + 20 Natural Fiber -> 2 Plastic (Agricultural Science 2, Laboratory, 180 Calories, 4 Minutes)
 
 Biodiesel:
 
@@ -38,7 +38,7 @@ Blended Gasoline:
 
 Cellulosic Ethanol:
 
-- 40 Plant Fiber -> 1 Ethanol (Agricultural Science 5, Laboratory, 120 Calories, 2 Minutes)
+- 40 Plant Fiber -> 1 Ethanol (Agricultural Science 5, Laboratory, 60 Calories, 2 Minutes)
 
 Corn Sugar:
 
@@ -46,7 +46,7 @@ Corn Sugar:
 
 Creosote Syrup:
 
-- 20 Creosote Flower + 1 Ethanol -> 1 Creosote Syrup (Agricultural Science 4, Laboratory, 120 Calories, 2 Minutes)
+- 10 Creosote Flower + 1 Ethanol -> 1 Creosote Syrup (Agricultural Science 2, Laboratory, 120 Calories, 2 Minutes)
 
 The following existing recipes have been reassigned to this skill:
 

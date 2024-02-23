@@ -59,7 +59,6 @@ namespace Eco.Mods.TechTree
                 stomach.Contents.RemoveAll(entry => true, out var removedFood);
                 foreach (StomachEntry entry in removedFood) Stomach.FoodContentUpdatedEvent?.Invoke(player.User, entry.Food.GetType());
                 stomach.RecalcAverageNutrients();
-                // player.MsgLocStr("Bad elk meat?");
 
                 var mounted = player.MountManager?.IsMounted ?? false;
                 if (mounted || itemStack?.Item is SeedItem) return; // No need to try play food animation while mounted (ik problems, jiggles, etc) or seeds
@@ -69,7 +68,7 @@ namespace Eco.Mods.TechTree
         }
     }
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 4)]
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 2)]
     [Ecopedia("Food", "Ingredients", subPageName: "Creosote Syrup Item")]
     public partial class CreosoteSyrupRecipe : RecipeFamily
     {
@@ -84,7 +83,7 @@ namespace Eco.Mods.TechTree
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(CreosoteFlowerItem), 20, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
+                    new IngredientElement(typeof(CreosoteFlowerItem), 10, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                     new IngredientElement(typeof(EthanolItem), 1, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent))
                 },
 

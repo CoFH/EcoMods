@@ -43,7 +43,7 @@
             this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(120, typeof(AgriculturalScienceSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
             this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(CellulosicEthanolRecipe), start: 2, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
