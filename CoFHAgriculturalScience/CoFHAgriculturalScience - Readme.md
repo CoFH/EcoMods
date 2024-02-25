@@ -20,21 +20,21 @@ Activated Charcoal:
 
 - 4 Charcoal + 1 Crushed Limestone -> 4 Activated Charcoal (Agricultural Science 4, Laboratory, 60 Calories, 2 Minutes)
 
+Agave Ethanol:
+
+- 10 Agave Leaves -> 1 Ethanol (Agricultural Science 2, Laboratory, 60 Calories, 1 Minute)
+
 Bio-Epoxy:
 
-- 6 Flaxseed Oil -> 2 Epoxy (Agricultural Science 2, Laboratory, 180 Calories, 4 Minutes)
+- 6 Flaxseed Oil + 0.5 Ethanol -> 2 Epoxy (Agricultural Science 2, Laboratory, 180 Calories, 4 Minutes)
 
 Bio-Plastic:
 
-- 8 Bean Paste + 20 Natural Fiber -> 2 Plastic (Agricultural Science 2, Laboratory, 180 Calories, 4 Minutes)
-
-Biodiesel:
-
-- Same as Oil Drilling (Agricultural Science 3, Oil Refinery, 60 Calories, 0.8 Minutes)
+- 8 Bean Paste + 20 Natural Fiber + 0.5 Ethanol -> 2 Plastic (Agricultural Science 2, Laboratory, 180 Calories, 4 Minutes)
 
 Blended Gasoline:
 
-- 3 Petroleum + 4 Ethanol -> 1 Gasoline (Alternate recipe for Gasoline and reuses its crafting parameters)
+- 3 Petroleum + 2 Ethanol -> 1 Gasoline (Oil Drilling 3, Oil Refinery, 120 Calories, 0.8 Minutes)
 
 Cellulosic Ethanol:
 

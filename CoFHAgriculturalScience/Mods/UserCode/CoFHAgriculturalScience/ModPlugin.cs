@@ -24,9 +24,9 @@ namespace CoFH.AgriculturalScience
             var laboratoryAttribute = ItemAttribute.Get<AllowPluginModulesAttribute>(laboratory.Type);
             laboratoryAttribute.ItemTypes = new[] { typeof(CuttingEdgeCookingUpgradeItem), typeof(AgriculturalScienceUpgradeItem) };
 
-            var refinery = Item.Get(typeof(OilRefineryItem));
-            var refineryAttribute = ItemAttribute.Get<AllowPluginModulesAttribute>(refinery.Type);
-            refineryAttribute.ItemTypes = new[] { typeof(OilDrillingUpgradeItem), typeof(AgriculturalScienceUpgradeItem) };
+            // var refinery = Item.Get(typeof(OilRefineryItem));
+            // var refineryAttribute = ItemAttribute.Get<AllowPluginModulesAttribute>(refinery.Type);
+            // refineryAttribute.ItemTypes = new[] { typeof(OilDrillingUpgradeItem), typeof(AgriculturalScienceUpgradeItem) };
         }
     }
 }

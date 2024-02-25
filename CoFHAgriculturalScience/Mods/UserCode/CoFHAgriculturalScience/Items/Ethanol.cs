@@ -5,6 +5,6 @@ namespace Eco.Mods.TechTree
     using Eco.Core.Items;
     using Eco.Gameplay.Items;
 
-    [Fuel(500)][Tag("Fuel")][Tag("Burnable Fuel")]
-    public partial class WoodenMoldItem {}
+    [Fuel(12000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class EthanolItem {}
 }

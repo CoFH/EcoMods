@@ -10,6 +10,14 @@ using System.Text.RegularExpressions;
 
 namespace Eco.Mods.TechTree
 {
+    public static class CopySkillScrollSettings
+    {
+        // How much paper to require to copy a scroll
+        public const int PaperAmount = 10;
+        // How much paint to require to copy a scroll
+        public const int PaintAmount = 2;
+    }
+
     public static class SkillScrollSettings
     {
         // How many scrolls should be created per craft

@@ -57,6 +57,9 @@ Fish Stock:
 Mix Soil:
 - 3 Sand + 1 Clay + 2 Compost -> 6 Dirt (Farming 4; Farmer's Table, 25 Calories, 0.5 XP, 4.8 Minutes)
 
+Spun Fiberglass:
+- 8 Plastic + 3 Glass -> 2 Fiberglass (Glassworking 3; Spin Melter, 60 Calories, 1 XP, 1.5 Minutes)
+
 Strip Pelt:
 - 1 Fur Pelt -> 1 Leather Hide + 1 Tallow (Butchery 2; Butcher's Table, 20 Calories, 0.5 XP, 0.8 Minutes)
 
@@ -71,14 +74,13 @@ Fishing falls off really early and there is a lot of pressure on Millers to prod
 
 Also, using Fish to ease a bit of the pressure on Meat Stock makes sense - Fish are used interchangably in many of the early Campfire Cooking recipes which use non-specific meat and this is a natural continuation of that.
 
+For Fiberglass, look up how it's made and you can see this is the more appropriate workstation for it, but it can't be simply moved over without having to completely redo the materials needed to craft the Spin Melter. So this is a *slightly* more glass-efficient and faster recipe.
+
 Compost sucks. Soil (Dirt) is made from a combination of silt, clay, sand, and organic material. This is just providing a recipe that is grounded in reality. Sand is pulling double duty as both Silt and Sand in this recipe, but it is a decent approximation.
 
 Wet Tailings can be processed/stabilized. Using Quicklime is actually how it is done. It doesn't magically make them non-polluting but it DOES reduce their volume and their propensity for seepage. It basically dries them out. So that's what this does.
 
 ## `/AutoGen` Override Files:
-
-Fiberglass:
-- Crafted in Spin Melter (Instead of Electronics Assembly)
 
 Rebar:
 - 1 Steel Bar -> 1 Rebar (-1 Steel Bar Required)
@@ -96,8 +98,6 @@ Steel Pipe:
 These recipes all make a bit more sense in other workstations, and the upgrade level is the same, so there's not really a balance issue. (You can find a video on YouTube of a guy making a rivet on an anvil, if you are curious.)
 
 Rebar's cost for only being used in a T3 material is just a little too pricey to justify, and Rivets also felt slightly too expensive for what they are. Since Screws are produced 4 at a time (and Nails 16), 4 seemed like a good round number to use.
-
-For Fiberglass, look up how it's made and you can see this is the more appropriate workstation for it. It also gives the Spin Melter another recipe which is definitely needs - Nylon Thread just isn't *that* in demand.
 
 ## Research Paper Changes:
 

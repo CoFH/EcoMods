@@ -1,45 +1,37 @@
-﻿namespace Eco.Mods.TechTree
+namespace Eco.Mods.TechTree
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using Eco.Gameplay.Blocks;
     using Eco.Gameplay.Components;
     using Eco.Gameplay.DynamicValues;
     using Eco.Gameplay.Items;
-    using Eco.Gameplay.Objects;
     using Eco.Gameplay.Players;
     using Eco.Gameplay.Skills;
-    using Eco.Gameplay.Settlements;
-    using Eco.Gameplay.Systems;
-    using Eco.Gameplay.Systems.TextLinks;
-    using Eco.Shared.Localization;
-    using Eco.Shared.Serialization;
     using Eco.Shared.Utils;
-    using Eco.Core.Items;
     using Eco.World;
     using Eco.World.Blocks;
-    using Eco.Gameplay.Pipes;
+    using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
     using Eco.Core.Controller;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 2)]
-    [Ecopedia("Items", "Products", subPageName: "Epoxy Item")]
-    public partial class BioEpoxyRecipe : RecipeFamily
+    [RequiresSkill(typeof(PaperMillingSkill), 6)]
+    public partial class SkillScrollCopyElectronicsRecipe : RecipeFamily
     {
-        public BioEpoxyRecipe()
+        public SkillScrollCopyElectronicsRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "AgSciBio-Epoxy",  //noloc
-                displayName: Localizer.DoStr("Bio-Epoxy"),
+                name: "SkillScrollCopyElectronics",  //noloc
+                displayName: Localizer.DoStr("Skill Scroll Copy (Electronics)"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(FlaxseedOilItem), 6, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
-                    new IngredientElement(typeof(EthanolItem), 0.5f, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
+                    new IngredientElement(typeof(ElectronicsSkillScroll), 1, true),
+                    new IngredientElement(typeof(PaperItem), CopySkillScrollSettings.PaperAmount, typeof(PaperMillingSkill), typeof(PaperMillingLavishResourcesTalent)),
+                    new IngredientElement(typeof(OilPaintItem), CopySkillScrollSettings.PaintAmount, typeof(PaperMillingSkill), typeof(PaperMillingLavishResourcesTalent))
                 },
 
                 // Define our recipe output items.
@@ -47,24 +39,24 @@
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<EpoxyItem>(2),
+                    new CraftingElement<ElectronicsSkillScroll>(2)
                 });
             this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
+            this.ExperienceOnCraft = 5; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(180, typeof(AgriculturalScienceSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(120, typeof(PaperMillingSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(BioEpoxyRecipe), start: 3f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(SkillScrollCopyElectronicsRecipe), start: 2f, skillType: typeof(PaperMillingSkill), typeof(PaperMillingFocusedSpeedTalent), typeof(PaperMillingParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Bio-Epoxy"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Skill Scroll Copy (Electronics)"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Bio-Epoxy"), recipeType: typeof(BioEpoxyRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Skill Scroll Copy (Electronics)"), recipeType: typeof(SkillScrollCopyElectronicsRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
-            CraftingComponent.AddRecipe(tableType: typeof(LaboratoryObject), recipe: this);
+            CraftingComponent.AddRecipe(tableType: typeof(SmallPaperMachineObject), recipe: this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily before initialization. You can change recipes, xp, labor, time here.</summary>
@@ -73,5 +65,4 @@
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
-
 }
