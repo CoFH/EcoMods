@@ -1,4 +1,4 @@
-namespace Eco.Mods.TechTree
+﻿namespace Eco.Mods.TechTree
 {
     using System;
     using System.Collections.Generic;
@@ -15,23 +15,21 @@ namespace Eco.Mods.TechTree
     using Eco.Core.Controller;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 4)]
-    public partial class ActivatedCharcoalRecipe : RecipeFamily
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 3)]
+    public partial class FermentCitricAcidRecipe : RecipeFamily
     {
-        public ActivatedCharcoalRecipe()
+        public FermentCitricAcidRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "Activated Charcoal",  //noloc
-                displayName: Localizer.DoStr("Activated Charcoal"),
+                name: "AgSciSugarCitricAcid",  //noloc
+                displayName: Localizer.DoStr("Ferment Citric Acid"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(CharcoalItem), 4, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
-                    new IngredientElement(typeof(CitricAcidItem), 1, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
-                    new IngredientElement(typeof(CrushedLimestoneItem), 1, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)), //noloc
+                    new IngredientElement(typeof(SugarItem), 4, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                 },
 
                 // Define our recipe output items.
@@ -39,20 +37,20 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<ActivatedCharcoalItem>(4)
+                    new CraftingElement<CitricAcidItem>(1),
                 });
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
-
+            
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(AgriculturalScienceSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(40, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(ActivatedCharcoalRecipe), start: 2f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(FermentCitricAcidRecipe), start: 1, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Activated Charcoal"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Ferment Citric Acid"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Activated Charcoal"), recipeType: typeof(ActivatedCharcoalRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Ferment Citric Acid"), recipeType: typeof(FermentCitricAcidRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.

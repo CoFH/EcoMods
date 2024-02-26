@@ -68,7 +68,7 @@ namespace Eco.Mods.TechTree
         }
     }
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 2)]
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 4)]
     [Ecopedia("Food", "Ingredients", subPageName: "Creosote Syrup Item")]
     public partial class CreosoteSyrupRecipe : RecipeFamily
     {
