@@ -15,7 +15,7 @@
     using Eco.Core.Controller;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 2)]
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 3)]
     public partial class AgaveEthanolRecipe : RecipeFamily
     {
         public AgaveEthanolRecipe()
@@ -40,7 +40,7 @@
                     new CraftingElement<EthanolItem>(1),
                 });
             this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
+            this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
             this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(AgriculturalScienceSkill));

@@ -13,10 +13,9 @@ namespace Eco.Mods.TechTree
     using Gameplay.Systems.TextLinks;
     using Eco.Shared.Localization;
     using Eco.Core.Controller;
-    using Eco.Gameplay.Settlements.ClaimStakes;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 3)]
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 1)]
     public partial class ExtractCelluloseRecipe : RecipeFamily
     {
         public ExtractCelluloseRecipe()
@@ -41,12 +40,13 @@ namespace Eco.Mods.TechTree
                     new CraftingElement<PlantFibersItem>(6),
                 });
             this.Recipes = new List<Recipe> { recipe };
+            this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
             this.LaborInCalories = CreateLaborInCaloriesValue(25, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(ExtractCelluloseRecipe), start: 1, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(ExtractCelluloseRecipe), start: 0.8f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Extract Cellulose"
             this.ModsPreInitialize();
