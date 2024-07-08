@@ -28,7 +28,7 @@ namespace Eco.Mods.TechTree
         partial void ModsPreInitialize()
         {
             var ingredients = this.Recipes[0].Ingredients;
-            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, true));
+            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, typeof(FarmingSkill), typeof(FarmingLavishResourcesTalent)));
         }
     }
 
@@ -37,7 +37,7 @@ namespace Eco.Mods.TechTree
         partial void ModsPreInitialize()
         {
             var ingredients = this.Recipes[0].Ingredients;
-            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, true));
+            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, typeof(AdvancedCookingSkill), typeof(AdvancedCookingLavishResourcesTalent)));
         }
     }
 
@@ -46,7 +46,7 @@ namespace Eco.Mods.TechTree
         partial void ModsPreInitialize()
         {
             var ingredients = this.Recipes[0].Ingredients;
-            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, true));
+            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, typeof(CarpentrySkill), typeof(CarpentryLavishResourcesTalent)));
         }
     }
 
@@ -55,7 +55,7 @@ namespace Eco.Mods.TechTree
         partial void ModsPreInitialize()
         {
             var ingredients = this.Recipes[0].Ingredients;
-            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, true));
+            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, typeof(MechanicsSkill), typeof(MechanicsLavishResourcesTalent)));
         }
     }
 
@@ -64,7 +64,7 @@ namespace Eco.Mods.TechTree
         partial void ModsPreInitialize()
         {
             var ingredients = this.Recipes[0].Ingredients;
-            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, true));
+            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, typeof(PotterySkill), typeof(PotteryLavishResourcesTalent)));
         }
     }
 
@@ -73,7 +73,7 @@ namespace Eco.Mods.TechTree
         partial void ModsPreInitialize()
         {
             var ingredients = this.Recipes[0].Ingredients;
-            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, true));
+            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, typeof(GlassworkingSkill), typeof(GlassworkingLavishResourcesTalent)));
         }
     }
 
@@ -82,7 +82,7 @@ namespace Eco.Mods.TechTree
         partial void ModsPreInitialize()
         {
             var ingredients = this.Recipes[0].Ingredients;
-            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, true));
+            ingredients.Add(new IngredientElement(typeof(PaperItem), 20, typeof(AdvancedSmeltingSkill), typeof(AdvancedSmeltingLavishResourcesTalent)));
         }
     }
 }

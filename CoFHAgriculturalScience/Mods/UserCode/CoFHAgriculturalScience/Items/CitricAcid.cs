@@ -29,8 +29,5 @@ namespace Eco.Mods.TechTree
     [Ecopedia("Items", "Products", createAsSubPage: true)]
     [LocDescription("An acid present in most fruits with various industrial and culinary uses.")] //The tooltip description for the item.
     public partial class CitricAcidItem : Item
-    {
-
-
-    }
+    {}
 }

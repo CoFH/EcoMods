@@ -40,7 +40,7 @@ namespace CoFH.XPTweaks
                 {
                     return;
                 }
-                user.Skillset.AddExperience(typeof(SelfImprovementSkill), 0.01f, Localizer.DoStr("for gaining experience in another skill."));
+                user.Skillset.AddExperience(typeof(SelfImprovementSkill), 0.01f, Localizer.DoStr("for gaining experience in another skill"));
             });
 
             UserManager.ManagerInitializedEvent.Add(() =>
@@ -49,7 +49,7 @@ namespace CoFH.XPTweaks
                 {
                     user.OnWorkOrderComplete.Add((order) =>
                     {
-                        user.Skillset.AddExperience(typeof(SelfImprovementSkill), order.LaborPerformed * 0.0001f, Localizer.DoStr("for completing a work order with another skill."));
+                        user.Skillset.AddExperience(typeof(SelfImprovementSkill), order.LaborPerformed * 0.00025f, Localizer.DoStr("for completing a work order with another skill"));
                     });
                 }
             });
@@ -71,14 +71,14 @@ namespace CoFH.XPTweaks
             user.UserXP.AddStars(BonusStars);
         }
 
-        // public static void OnUserLogIn(User user)
-        // {
-        //     user.OnLogOut.Add(OnUserLogout);
-        // }
+        public static void OnUserLogIn(User user)
+        {
+            user.OnLogOut.Add(OnUserLogout);
+        }
 
-        // public static void OnUserLogout(User user)
-        // {
+        public static void OnUserLogout(User user)
+        {
 
-        // }
+        }
     }
 }

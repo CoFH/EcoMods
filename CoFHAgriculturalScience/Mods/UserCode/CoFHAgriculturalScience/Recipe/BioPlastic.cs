@@ -31,14 +31,14 @@
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "AgSciBio-Plastic",  //noloc
+                name: "AgSciBioPlastic",  //noloc
                 displayName: Localizer.DoStr("Bio-Plastic"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(BeanPasteItem), 8, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
+                    new IngredientElement(typeof(BeanPasteItem), 5, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                     new IngredientElement("NaturalFiber", 20, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                     new IngredientElement(typeof(EthanolItem), 0.5f, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                 },
@@ -57,7 +57,7 @@
             this.LaborInCalories = CreateLaborInCaloriesValue(180, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(BioPlasticRecipe), start: 3f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(BioPlasticRecipe), start: 3, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Bio-Plastic"
             this.ModsPreInitialize();
@@ -65,7 +65,7 @@
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
-            CraftingComponent.AddRecipe(tableType: typeof(LaboratoryObject), recipe: this);
+            CraftingComponent.AddRecipe(tableType: typeof(BioReactorObject), recipe: this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily before initialization. You can change recipes, xp, labor, time here.</summary>

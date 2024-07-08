@@ -22,7 +22,7 @@
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "AgSciSugarCitricAcid",  //noloc
+                name: "AgSciFermentCitricAcid",  //noloc
                 displayName: Localizer.DoStr("Ferment Citric Acid"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
@@ -46,7 +46,7 @@
             this.LaborInCalories = CreateLaborInCaloriesValue(40, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(FermentCitricAcidRecipe), start: 0.8f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(FermentCitricAcidRecipe), start: 1, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Ferment Citric Acid"
             this.ModsPreInitialize();

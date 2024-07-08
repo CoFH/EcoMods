@@ -22,7 +22,7 @@ namespace Eco.Mods.TechTree
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "Activated Charcoal",  //noloc
+                name: "AgSciActivatedCharcoal",  //noloc
                 displayName: Localizer.DoStr("Activated Charcoal"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
@@ -48,7 +48,7 @@ namespace Eco.Mods.TechTree
             this.LaborInCalories = CreateLaborInCaloriesValue(60, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(ActivatedCharcoalRecipe), start: 2f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(ActivatedCharcoalRecipe), start: 1.5f, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Activated Charcoal"
             this.ModsPreInitialize();

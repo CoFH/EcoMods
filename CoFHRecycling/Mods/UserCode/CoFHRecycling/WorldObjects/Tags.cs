@@ -39,29 +39,29 @@ namespace Eco.Mods.TechTree
     [Fuel(6000)][Tag("Fuel")][Tag("Burnable Fuel")]
     public partial class HewnTableItem {}
 
-    // [Fuel(4000)][Tag("Fuel")]
-    // public partial class HardwoodHewnBenchItem {}
+    [Fuel(4000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnHardwoodBenchItem {}
 
-    // [Fuel(4000)][Tag("Fuel")]
-    // public partial class HardwoodHewnChairItem {}
+    [Fuel(4000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnHardwoodChairItem {}
 
-    // [Fuel(2000)][Tag("Fuel")]
-    // public partial class HardwoodHewnDoorItem {}
+    [Fuel(2000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnHardwoodDoorItem {}
 
-    // [Fuel(6000)][Tag("Fuel")]
-    // public partial class HardwoodHewnTableItem {}
+    [Fuel(6000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnHardwoodTableItem {}
 
-    // [Fuel(4000)][Tag("Fuel")]
-    // public partial class SoftwoodHewnBenchItem {}
+    [Fuel(4000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnSoftwoodBenchItem {}
 
-    // [Fuel(4000)][Tag("Fuel")]
-    // public partial class SoftwoodHewnChairItem {}
+    [Fuel(4000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnSoftwoodChairItem {}
 
-    // [Fuel(2000)][Tag("Fuel")]
-    // public partial class SoftwoodHewnDoorItem {}
+    [Fuel(2000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnSoftwoodDoorItem {}
 
-    // [Fuel(6000)][Tag("Fuel")]
-    // public partial class SoftwoodHewnTableItem {}
+    [Fuel(6000)][Tag("Fuel")][Tag("Burnable Fuel")]
+    public partial class HewnSoftwoodTableItem {}
 
     /* Lumber Variant Furniture */
 

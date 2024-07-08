@@ -22,14 +22,14 @@ namespace Eco.Mods.TechTree
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "ExtractCellulose",  //noloc
+                name: "AgSciExtractCellulose",  //noloc
                 displayName: Localizer.DoStr("Extract Cellulose"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement("Crop", 8, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
+                    new IngredientElement("Raw Food", 8, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
                 },
 
                 // Define our recipe output items.

@@ -13,7 +13,7 @@ namespace Eco.Mods.TechTree
     using Eco.Shared.Localization;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(AdvancedMasonrySkill), 3)]
+    [RequiresSkill(typeof(MasonrySkill), 6)]
     public partial class WetTailingsStabilizationRecipe : RecipeFamily
     {
         public WetTailingsStabilizationRecipe()
@@ -36,16 +36,16 @@ namespace Eco.Mods.TechTree
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<TailingsItem>(typeof(AdvancedMasonrySkill), 4, typeof(AdvancedMasonryLavishResourcesTalent))
+                    new CraftingElement<TailingsItem>(typeof(MasonrySkill), 4, typeof(MasonryLavishResourcesTalent))
                 });
             this.Recipes = new List<Recipe> { recipe };
             this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(180, typeof(AdvancedMasonrySkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(180, typeof(MasonrySkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(WetTailingsStabilizationRecipe), start: 4.8f, skillType: typeof(AdvancedMasonrySkill), typeof(AdvancedMasonryFocusedSpeedTalent), typeof(AdvancedMasonryParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(WetTailingsStabilizationRecipe), start: 4.8f, skillType: typeof(MasonrySkill), typeof(MasonryFocusedSpeedTalent), typeof(MasonryParallelSpeedTalent));
 
             // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Wet Tailings Stabilization"
             this.ModsPreInitialize();

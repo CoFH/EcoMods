@@ -16,9 +16,6 @@ Corrugated Steel:
 Flat Steel:
 - 3 Steel Bars + 2 Epoxy -> 2 Flat Steel (+1 Flat Steel Produced)
 
-Flaxseed Oil:
-- 12 Flax Seeds -> Flaxseed Oil (-4 Flax Seeds Required)
-
 Wind Turbine:
 - 6 Steel Bars + 4 Fiberglass + 4 Gearboxes + 4 Advanced Circuits + 4 Servos -> Wind Turbine (-2 Steel Bars, -4 Servos, and +4 Fiberglass Required)
 
@@ -64,13 +61,13 @@ Strip Pelt:
 - 1 Fur Pelt -> 1 Leather Hide + 1 Tallow (Butchery 2; Butcher's Table, 20 Calories, 0.5 XP, 0.8 Minutes)
 
 Wet Tailings Stabilization:
-- 4 Wet Tailings + 2 Quicklime -> 4 Tailings (Scales with Efficiency) (Advanced Masonry 3; Cement Kiln, 180 Calories, 1 XP, 4.8 Minutes)
+- 4 Wet Tailings + 2 Quicklime -> 4 Tailings (Scales with Efficiency) (Masonry 6; Cement Kiln, 180 Calories, 1 XP, 4.8 Minutes)
 
 ### Rationale:
 
 Currently, to make a bunch of compost, you run around dropping compostable items and wait 12 hours. You can even have 1 seed turn into compost. This requires 6 (same as the Compost Spoiled Food recipe), but allows it to be done in a Farmer's Table. Still takes 12 hours, though can be reduced through upgrades and talents.
 
-Fishing falls off really early and there is a lot of pressure on Millers to produce Oils (especially with Flaxseeds). This eases a bit of that pressure and boosts Hunting (Fishing) as a profession.
+Fishing falls off really early and there is a lot of pressure on Millers to produce Oils (especially with Flax Seeds). This eases a bit of that pressure and boosts Hunting (Fishing) as a profession.
 
 Also, using Fish to ease a bit of the pressure on Meat Stock makes sense - Fish are used interchangably in many of the early Campfire Cooking recipes which use non-specific meat and this is a natural continuation of that.
 
@@ -101,7 +98,7 @@ Rebar's cost for only being used in a T3 material is just a little too pricey to
 
 ## Research Paper Changes:
 
-- Modern Research Papers now require 20 Paper in addition to their previous requirements. This is a static input and does not scale with upgrade modules.
+- Modern Research Papers now require 20 Paper in addition to their previous requirements. This scales with upgrade modules.
 
 ### Rationale:
 

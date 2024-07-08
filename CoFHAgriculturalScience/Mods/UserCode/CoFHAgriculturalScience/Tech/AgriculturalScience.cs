@@ -93,12 +93,12 @@ namespace Eco.Mods.TechTree
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(AgricultureResearchPaperAdvancedItem), 10, typeof(FarmerSkill)),
+                    new IngredientElement(typeof(EngineeringResearchPaperAdvancedItem), 10, typeof(FarmerSkill)),
                     new IngredientElement(typeof(AgricultureResearchPaperModernItem), 10, typeof(FarmerSkill)),
-                    new IngredientElement(typeof(GeologyResearchPaperModernItem), 10, typeof(FarmerSkill)),
-                    new IngredientElement(typeof(DendrologyResearchPaperModernItem), 10, typeof(FarmerSkill)),
+                    new IngredientElement(typeof(CulinaryResearchPaperModernItem), 20, typeof(FarmerSkill)),
                     new IngredientElement("Basic Research", 30, typeof(FarmerSkill)), //noloc
                     new IngredientElement("Advanced Research", 20, typeof(FarmerSkill)), //noloc
+                    new IngredientElement("Modern Research", 20, typeof(FarmerSkill)), //noloc
                 },
 
                 // Define our recipe output items.

@@ -2,44 +2,34 @@
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using Eco.Gameplay.Blocks;
     using Eco.Gameplay.Components;
     using Eco.Gameplay.DynamicValues;
     using Eco.Gameplay.Items;
-    using Eco.Gameplay.Objects;
     using Eco.Gameplay.Players;
     using Eco.Gameplay.Skills;
-    using Eco.Gameplay.Settlements;
-    using Eco.Gameplay.Systems;
-    using Eco.Gameplay.Systems.TextLinks;
-    using Eco.Shared.Localization;
-    using Eco.Shared.Serialization;
     using Eco.Shared.Utils;
-    using Eco.Core.Items;
     using Eco.World;
     using Eco.World.Blocks;
-    using Eco.Gameplay.Pipes;
+    using Gameplay.Systems.TextLinks;
+    using Eco.Shared.Localization;
     using Eco.Core.Controller;
     using Eco.Gameplay.Items.Recipes;
 
-    [RequiresSkill(typeof(AgriculturalScienceSkill), 2)]
-    [Ecopedia("Items", "Products", subPageName: "Epoxy Item")]
-    public partial class BioEpoxyRecipe : RecipeFamily
+    [RequiresSkill(typeof(AgriculturalScienceSkill), 1)]
+    public partial class ProcessSpoiledFoodRecipe : RecipeFamily
     {
-        public BioEpoxyRecipe()
+        public ProcessSpoiledFoodRecipe()
         {
             var recipe = new Recipe();
             recipe.Init(
-                name: "AgSciBioEpoxy",  //noloc
-                displayName: Localizer.DoStr("Bio-Epoxy"),
+                name: "AgSciProcessSpoiledFood",  //noloc
+                displayName: Localizer.DoStr("Process Spoiled Food"),
 
                 // Defines the ingredients needed to craft this recipe. An ingredient items takes the following inputs
                 // type of the item, the amount of the item, the skill required, and the talent used.
                 ingredients: new List<IngredientElement>
                 {
-                    new IngredientElement(typeof(FlaxseedOilItem), 5, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
-                    new IngredientElement(typeof(EthanolItem), 0.5f, typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceLavishResourcesTalent)),
+                    new IngredientElement(typeof(SpoiledFoodItem), 40, true)
                 },
 
                 // Define our recipe output items.
@@ -47,24 +37,25 @@
                 // to create.
                 items: new List<CraftingElement>
                 {
-                    new CraftingElement<EpoxyItem>(2),
+                    new CraftingElement<CompostItem>(4),
+                    new CraftingElement<EthanolItem>(1)
                 });
             this.Recipes = new List<Recipe> { recipe };
-            this.ExperienceOnCraft = 1; // Defines how much experience is gained when crafted.
+            this.ExperienceOnCraft = 0.5f; // Defines how much experience is gained when crafted.
             
             // Defines the amount of labor required and the required skill to add labor
-            this.LaborInCalories = CreateLaborInCaloriesValue(180, typeof(AgriculturalScienceSkill));
+            this.LaborInCalories = CreateLaborInCaloriesValue(80, typeof(AgriculturalScienceSkill));
 
             // Defines our crafting time for the recipe
-            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(BioEpoxyRecipe), start: 3, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
+            this.CraftMinutes = CreateCraftTimeValue(beneficiary: typeof(ProcessSpoiledFoodRecipe), start: 4, skillType: typeof(AgriculturalScienceSkill), typeof(AgriculturalScienceFocusedSpeedTalent), typeof(AgriculturalScienceParallelSpeedTalent));
 
-            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Bio-Epoxy"
+            // Perform pre/post initialization for user mods and initialize our recipe instance with the display name "Process Spoiled Food"
             this.ModsPreInitialize();
-            this.Initialize(displayText: Localizer.DoStr("Bio-Epoxy"), recipeType: typeof(BioEpoxyRecipe));
+            this.Initialize(displayText: Localizer.DoStr("Process Spoiled Food"), recipeType: typeof(ProcessSpoiledFoodRecipe));
             this.ModsPostInitialize();
 
             // Register our RecipeFamily instance with the crafting system so it can be crafted.
-            CraftingComponent.AddRecipe(tableType: typeof(BioReactorObject), recipe: this);
+            CraftingComponent.AddRecipe(tableType: typeof(LaboratoryObject), recipe: this);
         }
 
         /// <summary>Hook for mods to customize RecipeFamily before initialization. You can change recipes, xp, labor, time here.</summary>
@@ -73,5 +64,4 @@
         /// <summary>Hook for mods to customize RecipeFamily after initialization, but before registration. You can change skill requirements here.</summary>
         partial void ModsPostInitialize();
     }
-
 }
